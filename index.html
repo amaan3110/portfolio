@@ -253,8 +253,18 @@
         <div class="page3_body">
           <h2 class="font-freight">Who the hell is ?</h2>
           <div class="page3_image">
-            <img src="./images/hero-image.png" alt="hero-image" />
-            <img class="profile" src="./images/profile.png" alt="profile" />
+            <!-- <img src="./images/hero-image.png" alt="hero-image" /> -->
+            <!-- <img class="profile" src="./images/profile.png" alt="profile" /> -->
+
+            <img
+              src="https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/hero-image.png"
+              alt="hero-image"
+            />
+            <img
+              class="profile"
+              src="https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/profile.png"
+              alt="profile"
+            />
           </div>
           <div class="scroll_marquee">
             <div class="scroll_inner">
@@ -331,7 +341,12 @@
               </div>
             </div>
             <div class="skill_container">
-              <img src="./images/skills.png" alt="skills" />
+              <!-- <img src="./images/skills.png" alt="skills" /> -->
+              <img
+                src="https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/skills.png
+"
+                alt="skills"
+              />
             </div>
           </div>
         </div>
@@ -342,7 +357,13 @@
           <h1>Wo<span>r</span>ks</h1>
         </div>
         <div class="page4_body">
-          <img id="project_image" src="./images/project1.png" alt="p1_image" />
+          <!-- <img id="project_image" src="./images/project1.png" alt="p1_image" /> -->
+          <img
+            id="project_image"
+            src="https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project1.png
+"
+            alt="p1_image"
+          />
           <span class="drag-hint">← Drag to explore my work →</span>
         </div>
 
@@ -673,12 +694,20 @@
       const projectImage = document.getElementById("project_image");
       const boundContainer = document.querySelector(".page4_body");
 
+      // const projectImages = [
+      //   "./images/project1.png",
+      //   "./images/project2.png",
+      //   "./images/project3.png",
+      //   "./images/project4.png",
+      //   "./images/project5.png",
+      // ];
+
       const projectImages = [
-        "./images/project1.png",
-        "./images/project2.png",
-        "./images/project3.png",
-        "./images/project4.png",
-        "./images/project5.png",
+        "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project1.png",
+        "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project2.png",
+        "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project3.png",
+        "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project4.png",
+        "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project5.png",
       ];
 
       const isMobile = window.innerWidth < 768;
