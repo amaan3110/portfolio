@@ -142,7 +142,7 @@ nav .emoji {
 }
 
 .loader h1 {
-    font-size: 82px;
+    font-size: 70px;
     font-weight: 500;
 }
 
@@ -184,14 +184,14 @@ nav .emoji {
 }
 
 .page1_title h1 {
-    font-size: 8vw;
+    font-size: clamp(4rem, 8vw, 8rem);
     font-weight: 600;
     color: #383838;
     line-height: 1;
 }
 
 .c-visual {
-    width: 270px;
+    width: clamp(150px, 15vw, 300px);
     color: var(--secondary);
     margin-block: 0 24px;
 }
@@ -586,7 +586,7 @@ nav .emoji {
 }
 
 .page5_body {
-    font-size: 80px;
+    font-size: clamp(2.5rem, 6.5vw, 6rem);
     font-weight: 600;
     line-height: 1;
     margin-top: 32px;
@@ -662,23 +662,9 @@ footer {
         z-index: 9;
     }
 
-    .loader h1 {
-        font-size: 36px;
-        font-weight: 500;
-    }
-
     #page1 {
         position: relative;
         min-height: 75vh;
-    }
-
-
-    .page1_title h1 {
-        font-size: 18vw;
-    }
-
-    .c-visual {
-        width: 200px;
     }
 
     .title_span {
@@ -719,19 +705,6 @@ footer {
         width: 100%;
     }
 
-    .project_type {
-        font-size: 12px;
-    }
-
-    .project_name {
-        font-size: 20px;
-    }
-
-    .project_link {
-        padding: 8px 10px;
-        font-size: 20px;
-    }
-
     .page3_body {
         margin-top: 36px;
     }
@@ -742,7 +715,7 @@ footer {
 
     .page3_image {
         margin-top: 20px;
-        height: 400px;
+        height: 600px;
     }
 
     .page3_image img {
@@ -779,11 +752,6 @@ footer {
         height: 60px;
     }
 
-
-    .page5_body {
-        font-size: 40px;
-    }
-
     footer {
         font-size: 18px;
     }
@@ -791,14 +759,20 @@ footer {
 }
 
 @media screen and (max-width: 576px) {
-    .c-visual {
-        width: 150px;
+    .loader h1 {
+        font-size: 32px;
+        font-weight: 500;
     }
-
 
     .title_span {
-        top: -8%;
+        top: -9%;
     }
+
+    .page3_image {
+        margin-top: 20px;
+        height: 400px;
+    }
+
 
     .current_company_name {
         font-size: 26px;
@@ -810,6 +784,19 @@ footer {
 
     .social_cta a i {
         font-size: 40px;
+    }
+
+    .project_type {
+        font-size: 12px;
+    }
+
+    .project_name {
+        font-size: 20px;
+    }
+
+    .project_link {
+        padding: 8px 10px;
+        font-size: 20px;
     }
 
 }
