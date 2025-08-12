@@ -404,6 +404,17 @@ function getUTMParams() {
 (async () => {
   const utm = getUTMParams();
 
+  // Detect location via IP
+  try {
+    const locationData = await fetch("http://ip-api.com/json/").then((res) =>
+      res.json()
+    );
+    utm.location = `${locationData.city}, ${locationData.regionName}, ${locationData.country}`;
+  } catch (err) {
+    console.error("❌ Error fetching location:", err);
+    utm.location = "Unknown";
+  }
+
   // Only send if utm_source or utm_medium exists
   if (utm.utm_source || utm.utm_medium) {
     console.log(utm);
