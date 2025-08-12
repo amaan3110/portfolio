@@ -662,6 +662,10 @@ footer {
         z-index: 9;
     }
 
+    .loader h1 {
+        font-size: 52px;
+    }
+
     #page1 {
         position: relative;
         min-height: 75vh;
