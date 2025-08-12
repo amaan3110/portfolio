@@ -402,9 +402,12 @@ function getUTMParams() {
 }
 
 (async () => {
+  if (sessionStorage.getItem("utmDataSent")) {
+    return;
+  }
+
   const utm = getUTMParams();
 
-  // Detect location via IP
   try {
     const locationData = await fetch("http://ip-api.com/json/").then((res) =>
       res.json()
@@ -415,7 +418,6 @@ function getUTMParams() {
     utm.location = "Unknown";
   }
 
-  // Only send if utm_source or utm_medium exists
   if (utm.utm_source || utm.utm_medium) {
     console.log(utm);
     try {
@@ -427,6 +429,7 @@ function getUTMParams() {
         body: JSON.stringify({ data: utm }),
       });
       console.log("✅ UTM data sent to SheetDB");
+      sessionStorage.setItem("utmDataSent", "true");
     } catch (error) {
       console.error("❌ Error sending UTM data:", error);
     }
