@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
 
 @font-face {
     font-family: Gilroy;
@@ -35,19 +35,17 @@
     --black: #111;
     --grey: #a2a2a2;
     --background: #fff;
-    --red: #FF6467;
-    --blue: #51A2FF;
+    --red: #ff6467;
+    --blue: #51a2ff;
     --dark-blue: #10528b;
     --yellow: oklch(90.5% 0.182 98.111);
     --header-heading: 60px;
     --heading: 70px;
-
 }
 
 body {
-    cursor: url('./images/cursor.png'), auto;
+    cursor: url("./images/cursor.png"), auto;
 }
-
 
 .font-maizus {
     font-family: Mazius;
@@ -84,7 +82,6 @@ body {
     color: var(--black2);
 }
 
-
 .fw-600 {
     font-size: 16px;
     font-weight: 600;
@@ -105,7 +102,6 @@ nav {
     align-items: center;
     justify-content: space-between;
 }
-
 
 nav span a {
     text-decoration: none;
@@ -174,7 +170,6 @@ nav .emoji {
     background-position: center;
     background-repeat: no-repeat;
 }
-
 
 .page1_title {
     /* width: 100%; */
@@ -372,7 +367,7 @@ nav .emoji {
 
 .skill_container {
     width: 50%;
-    background-color: #F8F9F8;
+    background-color: #f8f9f8;
 }
 
 .skill_container img {
@@ -437,13 +432,11 @@ nav .emoji {
     display: grid;
 }
 
-
 .about_me h2 {
     max-width: 700px;
     font-size: 40px;
     grid-column: 1;
     grid-row: 1;
-
 }
 
 .about_me h2:nth-child(1) {
@@ -521,8 +514,7 @@ nav .emoji {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,
-            -50%);
+    transform: translate(-50%, -50%);
 }
 
 @keyframes pulse {
@@ -539,7 +531,6 @@ nav .emoji {
     }
 }
 
-
 .custom_arrow {
     width: 80px;
     height: 80px;
@@ -549,9 +540,8 @@ nav .emoji {
     margin-top: 24px;
 }
 
-
 .custom_arrow::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 0.5px;
@@ -562,8 +552,6 @@ nav .emoji {
     transform-origin: 100% 100%;
 }
 
-
-
 #page5 {
     position: relative;
     background: var(--background);
@@ -572,7 +560,6 @@ nav .emoji {
 
 .page5_header {
     overflow: hidden;
-
 }
 
 .page5_header h1 {
@@ -622,8 +609,6 @@ footer {
 }
 
 @media screen and (max-width: 1100px) {
-
-
     .page4_body {
         height: 90vh;
     }
@@ -647,13 +632,12 @@ footer {
 
         50% {
             opacity: 0.5;
-            transform: translate(-45%, -50%);
+            transform: translate(-50%, -100%);
         }
     }
 }
 
 @media screen and (max-width: 992px) {
-
     :root {
         --header-heading: 38px;
     }
@@ -674,7 +658,6 @@ footer {
     .title_span {
         transform: rotate(0deg);
     }
-
 
     .page2_header {
         flex-direction: column;
@@ -759,7 +742,6 @@ footer {
     footer {
         font-size: 18px;
     }
-
 }
 
 @media screen and (max-width: 576px) {
@@ -776,7 +758,6 @@ footer {
         margin-top: 20px;
         height: 400px;
     }
-
 
     .current_company_name {
         font-size: 26px;
@@ -802,5 +783,4 @@ footer {
         padding: 8px 10px;
         font-size: 20px;
     }
-
 }
