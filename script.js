@@ -9,29 +9,39 @@ gsap.registerPlugin(Draggable, InertiaPlugin, ScrollTrigger);
 
 CustomEase.create("customEase", "0.16,1,0.3,1");
 
+const words = document.querySelectorAll(".loader_greeting span");
 const tl = gsap.timeline();
 
+words.forEach((word) => {
+  tl.to(word, {
+    display: "block",
+    duration: 0.1,
+  }).to(
+    word,
+    {
+      display: "none",
+      duration: 0.1,
+    },
+    "+=0.2"
+  );
+});
 tl.from(".loader h1", {
   x: 80,
+  opacity: 0,
   duraion: 1,
   ease: "power1.inOut",
-});
-tl.from(
-  ".loader_entry_text",
-  {
-    x: 100,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.01,
-    ease: "power1.inOut",
-  },
-  "-=0.9"
-)
+})
+  .from(".name", {
+    height: 0,
+    transformOrigin: "top",
+    duration: 0.5,
+    ease: "power2.out",
+  })
   .to(".loader h1", {
-    y: -100,
+    autoAlpha: 0,
     duration: 1,
     ease: "power3.out",
-    delay: 0.5,
+    delay: 0.3,
   })
   .to(
     ".loader",

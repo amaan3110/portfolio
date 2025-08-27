@@ -133,6 +133,19 @@ nav .emoji {
     overflow: hidden;
 }
 
+.loader_greeting {
+    position: relative;
+    font-size: 3.5rem;
+    font-weight: bold;
+    display: grid;
+}
+
+.loader_greeting span {
+    display: none;
+    grid-column: 1;
+    grid-row: 1;
+}
+
 .loader_text {
     overflow: hidden;
 }
@@ -142,14 +155,18 @@ nav .emoji {
     font-weight: 500;
 }
 
-.loader h1 .name {
-    font-family: Mazius;
-    font-weight: 500;
-    color: var(--secondary);
-}
-
 .loader h1 span {
     display: inline-block;
+}
+
+.loader .name {
+    background-color: var(--secondary);
+    margin-top: -1.5rem;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+    padding: 0 10px;
+    border-radius: 8px
 }
 
 .loader_2 {
@@ -646,6 +663,10 @@ footer {
         z-index: 9;
     }
 
+    .loader_greeting {
+        font-size: 2.5rem;
+    }
+
     .loader h1 {
         font-size: 52px;
     }
@@ -745,6 +766,10 @@ footer {
 }
 
 @media screen and (max-width: 576px) {
+    .loader_greeting {
+        font-size: 2rem;
+    }
+
     .loader h1 {
         font-size: 32px;
         font-weight: 500;
