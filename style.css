@@ -150,6 +150,7 @@ nav .emoji {
 
 .loader_text {
     overflow: hidden;
+    opacity: 0;
 }
 
 .loader h1 {

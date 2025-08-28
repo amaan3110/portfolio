@@ -21,6 +21,9 @@ words.forEach((word) => {
     {
       display: "none",
       duration: 0.1,
+      onComplete: () => {
+        gsap.to(".loader_text", { opacity: 1 });
+      },
     },
     "+=0.2"
   );
