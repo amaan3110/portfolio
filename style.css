@@ -230,6 +230,8 @@ nav .emoji {
     width: 100%;
     padding: 24px 5%;
     background-color: var(--background);
+    position: relative;
+    z-index: 2;
 }
 
 .page2_header {
@@ -620,6 +622,19 @@ nav .emoji {
     cursor: pointer;
 }
 
+
+#page6 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: relative;
+    z-index: -1;
+}
+
+#page6 img {
+    width: 100%;
+}
+
 footer {
     padding-block: 24px 32px;
     text-align: center;
@@ -810,5 +825,15 @@ footer {
     .project_link {
         padding: 8px 10px;
         font-size: 20px;
+    }
+
+    #page6 {
+        grid-template-columns: repeat(1, 1fr);
+        z-index: 1;
+    }
+
+    #page6 img {
+        position: sticky;
+        top: 0px;
     }
 }

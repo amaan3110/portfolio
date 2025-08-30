@@ -372,6 +372,18 @@ document.getElementById("checkbox").addEventListener("change", (e) => {
   });
 });
 
+if (window.innerWidth > 600) {
+  ScrollTrigger.create({
+    trigger: "#page6",
+    start: "top top",
+    end: "+=150%",
+    pin: true,
+    pinSpacing: false,
+    scrub: true,
+    markers: false,
+  });
+}
+
 function redirectTo(url) {
   window.open(url, "_blank");
 }
