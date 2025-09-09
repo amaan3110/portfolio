@@ -44,7 +44,7 @@
 }
 
 body {
-    cursor: url("./images/cursor.png"), auto;
+    cursor: url("./images/cursor.svg"), auto;
 }
 
 .font-maizus {
@@ -137,8 +137,8 @@ nav .emoji {
 
 .loader_greeting {
     position: relative;
-    font-size: 3.5rem;
-    font-weight: bold;
+    font-size: 4rem;
+    /* font-weight: bold; */
     display: grid;
 }
 
@@ -622,13 +622,13 @@ nav .emoji {
     cursor: pointer;
 }
 
-
 #page6 {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     position: relative;
     z-index: -1;
+    display: none;
 }
 
 #page6 img {
@@ -784,12 +784,8 @@ footer {
 }
 
 @media screen and (max-width: 576px) {
-    .loader_greeting {
-        font-size: 2rem;
-    }
-
     .loader h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
         font-weight: 500;
     }
 
@@ -830,6 +826,7 @@ footer {
     #page6 {
         grid-template-columns: repeat(1, 1fr);
         z-index: 1;
+        display: block;
     }
 
     #page6 img {
