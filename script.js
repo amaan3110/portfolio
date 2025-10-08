@@ -128,12 +128,12 @@ function projectCards({ year, type, name, link }) {
 }
 
 const projectArray = [
-  {
-    year: 2025,
-    type: "Travel Agency",
-    name: "Elegant Journey",
-    link: "https://www.elegantjourneys.com/",
-  },
+  // {
+  //   year: 2025,
+  //   type: "Travel Agency",
+  //   name: "Elegant Journey",
+  //   link: "https://www.elegantjourneys.com/",
+  // },
   {
     year: 2024,
     type: "Spring Initializr",
