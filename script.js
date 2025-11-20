@@ -311,7 +311,7 @@ const projectImages = [
   "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project2.png",
   "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project3.png",
   "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project4.png",
-  "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project5.png",
+  // "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project5.png",
 ];
 
 const isMobile = window.innerWidth < 768;
