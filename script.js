@@ -446,7 +446,7 @@ function getUTMParams() {
   const utm = getUTMParams();
 
   try {
-    const locationData = await fetch("http://ip-api.com/json/").then((res) =>
+    const locationData = await fetch("https://ipapi.co/json/").then((res) =>
       res.json()
     );
     utm.location = `${locationData.city}, ${locationData.regionName}, ${locationData.country}`;
