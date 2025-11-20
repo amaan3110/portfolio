@@ -416,6 +416,17 @@ function getDeviceType() {
   }
 }
 
+function getVisitorId() {
+  let id = localStorage.getItem("visitor_id");
+
+  if (!id) {
+    id = crypto.randomUUID(); // secure unique ID
+    localStorage.setItem("visitor_id", id);
+  }
+
+  return id;
+}
+
 function getUTMParams() {
   const params = new URLSearchParams(window.location.search);
   return {
@@ -423,6 +434,7 @@ function getUTMParams() {
     utm_medium: params.get("utm_medium") || "",
     device: getDeviceType() || "",
     timestamp: getFormattedTimestamp(),
+    visitor_id: getVisitorId(),
   };
 }
 
