@@ -446,10 +446,10 @@ function getUTMParams() {
   const utm = getUTMParams();
 
   try {
-    const locationData = await fetch("https://ipapi.co/json/").then((res) =>
+    const locationData = await fetch("https://ipinfo.io/json?token=abec968d6caa8e").then((res) =>
       res.json()
     );
-    utm.location = `${locationData.city}, ${locationData.regionName}, ${locationData.country}`;
+    utm.location = `${locationData.city}, ${locationData.region}, ${locationData.country}`;
   } catch (err) {
     console.error("❌ Error fetching location:", err);
     utm.location = "Unknown";
