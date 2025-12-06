@@ -456,7 +456,6 @@ function getUTMParams() {
   }
 
   if (utm.utm_source || utm.utm_medium) {
-    console.log(utm);
     try {
       await fetch("https://sheetdb.io/api/v1/01evwz914tipz", {
         method: "POST",
