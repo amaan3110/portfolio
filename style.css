@@ -510,46 +510,54 @@ nav .emoji {
 }
 
 .page4_body {
-    height: 50vh;
     place-content: center;
     position: relative;
     margin-top: 32px;
 }
 
-.page4_body img {
-    position: absolute;
-    top: 0;
-    left: 0;
+.page4_marquee {
+    width: 100%;
+    overflow: hidden;
+    -webkit-mask: linear-gradient(to right, transparent, #fff 20%, #fff 80%, transparent);
+    mask: linear-gradient(to right, transparent, #fff 20%, #fff 80%, transparent);
+}
+
+.page4_marquee_inner {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    will-change: transform;
+    animation: page4Marquee 20s linear infinite;
+}
+
+.page4_marquee_inner.right {
+    margin-top: 1.5rem;
+    animation-direction: reverse;
+}
+
+.marquee_card {
+    --size: 280px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 12px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.marquee_card img {
+    width: 100%;
     height: 100%;
-    width: auto;
-    object-fit: cover;
+    object-fit: contain;
 }
 
-.drag-hint {
-    font-size: 1rem;
-    color: var(--black);
-    text-align: center;
-    animation: pulse 2s infinite;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-@keyframes pulse {
-
-    0%,
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-
-    50% {
-        opacity: 0.5;
-        transform: translateX(5px);
+@keyframes page4Marquee {
+    to {
+        transform: translateX(-100%);
     }
 }
 
@@ -643,34 +651,7 @@ footer {
     background-color: var(--background);
 }
 
-@media screen and (max-width: 1100px) {
-    .page4_body {
-        height: 90vh;
-    }
 
-    .page4_body img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: auto;
-        width: 100%;
-        object-fit: cover;
-    }
-
-    @keyframes pulse {
-
-        0%,
-        100% {
-            opacity: 1;
-            transform: translate(-50%, -50%);
-        }
-
-        50% {
-            opacity: 0.5;
-            transform: translate(-50%, -100%);
-        }
-    }
-}
 
 @media screen and (max-width: 992px) {
     :root {
@@ -765,14 +746,6 @@ footer {
         padding-inline: 5%;
     }
 
-    .page4_body {
-        height: 75vh;
-    }
-
-    .page4_body ul li a {
-        font-size: 30px;
-    }
-
     .custom_arrow {
         width: 60px;
         height: 60px;
@@ -796,6 +769,15 @@ footer {
     .page3_image {
         margin-top: 20px;
         height: 400px;
+    }
+
+    .page4_marquee_inner {
+        animation: page4Marquee 10s linear infinite;
+    }
+
+    .marquee_card {
+        --size: 200px;
+
     }
 
     .current_company_name {

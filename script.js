@@ -128,12 +128,24 @@ function projectCards({ year, type, name, link }) {
 }
 
 const projectArray = [
-  // {
-  //   year: 2025,
-  //   type: "Travel Agency",
-  //   name: "Elegant Journey",
-  //   link: "https://www.elegantjourneys.com/",
-  // },
+  {
+    year: 2025,
+    type: "Company Project",
+    name: "GrowSkills",
+    link: "https://growskills.alignbooks.com/",
+  },
+  {
+    year: 2025,
+    type: "Company Project",
+    name: "Learn with AlignBooks",
+    link: "https://learn.alignbooks.com/",
+  },
+  {
+    year: 2024,
+    type: "Company Project",
+    name: "AlignBooks",
+    link: "https://alignbooks.com/",
+  },
   {
     year: 2024,
     type: "Spring Initializr",
@@ -153,12 +165,6 @@ const projectArray = [
     link: "https://codereviewer.onrender.com",
   },
   {
-    year: 2024,
-    type: "Creative Studio",
-    name: "Works Studio",
-    link: "https://amaan3110.github.io/animated-websites/",
-  },
-  {
     year: 2023,
     type: "E-Commerce",
     name: "Scatch",
@@ -166,20 +172,8 @@ const projectArray = [
   },
   {
     year: 2023,
-    type: "Design Agency",
-    name: "Cuberto",
-    link: "https://amaan3110.github.io/animated-websites/",
-  },
-  {
-    year: 2023,
     type: "Development Studio",
     name: "Zajno",
-    link: "https://amaan3110.github.io/animated-websites/",
-  },
-  {
-    year: 2023,
-    type: "Design Studio",
-    name: "Kopo Studio",
     link: "https://amaan3110.github.io/animated-websites/",
   },
   {
@@ -192,12 +186,6 @@ const projectArray = [
     year: 2022,
     type: "Design Agency",
     name: "Rejouice",
-    link: "https://amaan3110.github.io/animated-websites/",
-  },
-  {
-    year: 2022,
-    type: "Social Enterprise",
-    name: "Two Good Co",
     link: "https://amaan3110.github.io/animated-websites/",
   },
 ];
@@ -295,46 +283,6 @@ function updateTime() {
 updateTime();
 setInterval(updateTime, 1000);
 
-const projectImage = document.getElementById("project_image");
-const boundContainer = document.querySelector(".page4_body");
-
-// const projectImages = [
-//   "./images/project1.png",
-//   "./images/project2.png",
-//   "./images/project3.png",
-//   "./images/project4.png",
-//   "./images/project5.png",
-// ];
-
-const projectImages = [
-  "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project1.png",
-  "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project2.png",
-  "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project3.png",
-  "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project4.png",
-  // "https://cdn.jsdelivr.net/gh/amaan3110/portfolio@main/images/project5.png",
-];
-
-const isMobile = window.innerWidth < 768;
-const dragAxis = isMobile ? "y" : "x";
-
-Draggable.create(projectImage, {
-  type: dragAxis,
-  bounds: boundContainer,
-  inertia: true,
-
-  onDrag: function () {
-    const current = dragAxis === "x" ? this.x : this.y;
-    const min = dragAxis === "x" ? this.minX : this.minY;
-    const max = dragAxis === "x" ? this.maxX : this.maxY;
-
-    const progress = (current - min) / (max - min);
-    const index = Math.floor(progress * projectImages.length);
-
-    const clampedIndex = Math.min(projectImages.length - 1, Math.max(0, index));
-    projectImage.src = projectImages[clampedIndex];
-  },
-});
-
 document.querySelectorAll(".page5_body span").forEach((span) => {
   span.addEventListener("click", (e) => {
     const url = e.target.dataset.url;
@@ -388,22 +336,6 @@ function redirectTo(url) {
   window.open(url, "_blank");
 }
 
-function getFormattedTimestamp() {
-  const now = new Date();
-  // Convert to IST: UTC + 5 hours 30 minutes
-  const istTime = new Date(now.getTime() + 5.5 * 60 * 60 * 1000);
-
-  const year = istTime.getUTCFullYear();
-  const month = String(istTime.getUTCMonth() + 1).padStart(2, "0");
-  const day = String(istTime.getUTCDate()).padStart(2, "0");
-
-  const hours = String(istTime.getUTCHours()).padStart(2, "0");
-  const minutes = String(istTime.getUTCMinutes()).padStart(2, "0");
-  const seconds = String(istTime.getUTCSeconds()).padStart(2, "0");
-
-  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-}
-
 function getDeviceType() {
   const width = window.innerWidth;
 
@@ -433,7 +365,7 @@ function getUTMParams() {
     utm_source: params.get("utm_source") || "",
     utm_medium: params.get("utm_medium") || "",
     device: getDeviceType() || "",
-    timestamp: getFormattedTimestamp(),
+    timestamp: new Date().toLocaleString(),
     visitor_id: getVisitorId(),
   };
 }
@@ -446,9 +378,9 @@ function getUTMParams() {
   const utm = getUTMParams();
 
   try {
-    const locationData = await fetch("https://ipinfo.io/json?token=abec968d6caa8e").then((res) =>
-      res.json()
-    );
+    const locationData = await fetch(
+      "https://ipinfo.io/json?token=abec968d6caa8e"
+    ).then((res) => res.json());
     utm.location = `${locationData.city}, ${locationData.region}, ${locationData.country}`;
   } catch (err) {
     console.error("❌ Error fetching location:", err);
