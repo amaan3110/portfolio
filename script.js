@@ -320,20 +320,24 @@ document.getElementById("checkbox").addEventListener("change", (e) => {
   });
 });
 
-if (window.innerWidth > 600) {
-  ScrollTrigger.create({
-    trigger: "#page6",
-    start: "top top",
-    end: "+=150%",
-    pin: true,
-    pinSpacing: false,
-    scrub: true,
-    markers: false,
-  });
-}
-
 function redirectTo(url) {
   window.open(url, "_blank");
+}
+
+function getFormattedTimestamp() {
+  const now = new Date();
+  // Convert to IST: UTC + 5 hours 30 minutes
+  const istTime = new Date(now.getTime() + 5.5 * 60 * 60 * 1000);
+
+  const year = istTime.getUTCFullYear();
+  const month = String(istTime.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(istTime.getUTCDate()).padStart(2, "0");
+
+  const hours = String(istTime.getUTCHours()).padStart(2, "0");
+  const minutes = String(istTime.getUTCMinutes()).padStart(2, "0");
+  const seconds = String(istTime.getUTCSeconds()).padStart(2, "0");
+
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
 function getDeviceType() {
@@ -365,7 +369,7 @@ function getUTMParams() {
     utm_source: params.get("utm_source") || "",
     utm_medium: params.get("utm_medium") || "",
     device: getDeviceType() || "",
-    timestamp: new Date().toLocaleString(),
+    timestamp: getFormattedTimestamp(),
     visitor_id: getVisitorId(),
   };
 }
