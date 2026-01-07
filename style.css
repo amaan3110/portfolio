@@ -812,7 +812,7 @@ footer {
   }
 
   .page4_card_footer .metrics {
-    width: calc(100% - 16px);
+    overflow: hidden;
   }
 
   .current_company_name {
