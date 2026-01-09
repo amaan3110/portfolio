@@ -61,59 +61,12 @@ tl.from(".loader h1", {
       height: 0,
       duration: 1,
       ease: "customEase",
-    },
-    "-=0.7"
-  )
-  .from(
-    ".page1_title h1",
-    {
-      y: "100%",
-      duration: 1,
-      ease: "power1.inOut",
-      stagger: 0.2,
       onComplete: () => {
-        gsap.set(".loader-container", { display: "none" });
+        document.querySelector(".loader-container").remove();
       },
-    },
-    "-=1.1"
-  )
-  .from("#timeDisplay", {
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    ease: "power1.inOut",
-  });
-
-const paths = [
-  "#v_path",
-  "#i_path",
-  "#s_path",
-  "#u_path",
-  "#a_path",
-  "#l_path",
-  "#dot_path",
-];
-
-paths.forEach((selector, index) => {
-  const path = document.querySelector(selector);
-  const length = path.getTotalLength();
-
-  gsap.set(path, {
-    stroke: "#14cf93",
-    strokeDasharray: length,
-    strokeDashoffset: length,
-  });
-
-  tl.to(
-    path,
-    {
-      strokeDashoffset: 0,
-      duration: 1,
-      ease: "power2.out",
     },
     "-=0.7"
   );
-});
 
 function projectCards({ year, type, name, link }) {
   return `<div class="projects_card">
@@ -297,7 +250,7 @@ gsap.from(".skill_container > img", {
   ease: "power2.inOut",
   scrollTrigger: {
     trigger: ".skill_container",
-    start: "top 50%",
+    start: "top 70%",
     end: "bottom 80%",
   },
 });
