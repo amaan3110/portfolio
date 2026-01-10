@@ -58,6 +58,7 @@
 
 body {
   cursor: url("./images/cursor.svg"), auto;
+  background: var(--background);
 }
 
 .font-maizus {
@@ -103,7 +104,6 @@ body {
 main {
   max-width: 1440px;
   margin: 0 auto;
-  background: var(--background);
 }
 
 nav {
@@ -754,7 +754,7 @@ nav .emoji {
 }
 
 .page5_body {
-  font-size: clamp(2.5rem, 6.5vw, 6rem);
+  font-size: clamp(2.5rem, 6vw, 6rem);
   font-weight: 600;
   line-height: 1;
   margin-top: 32px;
@@ -918,16 +918,16 @@ footer {
     left: 24px;
   }
 
+  .hero-title {
+    transform: translateX(15px);
+  }
+
   .hero-visual {
     margin-top: 1rem;
   }
 
   .floating-item img {
     display: none;
-  }
-
-  .hero-quote {
-    font-size: 28px;
   }
 }
 
@@ -941,8 +941,23 @@ footer {
     overflow: hidden;
   }
 
-  .hero-title {
-    transform: translateX(20px);
+  .hero-heading {
+    font-size: 48px;
+  }
+
+  .hero-prefix {
+    left: -40px;
+    font-size: 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    top: -12px;
+    left: 20px;
+  }
+
+  .hero-quote {
+    font-size: 28px;
   }
 
   .page3_image {
@@ -966,17 +981,26 @@ footer {
     font-size: 40px;
   }
 
+  .project_card{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
   .project_type {
     font-size: 12px;
+    grid-column: 1 / -1;
   }
 
   .project_name {
     font-size: 20px;
   }
 
-  .project_link {
-    padding: 8px 10px;
-    font-size: 20px;
+  .project_link a{
+    color: var(--black2);
+    width: auto;
+    height: auto;
+    padding: 0;
+    background-color: transparent;
   }
 
   #page6 {
