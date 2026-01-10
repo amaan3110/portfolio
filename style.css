@@ -195,7 +195,7 @@ nav .emoji {
 
 #page1 {
   width: 100%;
-  padding: 80px 5% 0;
+  padding: 100px 5% 0;
   background-color: var(--background);
 }
 
@@ -918,6 +918,10 @@ footer {
     left: 24px;
   }
 
+  .hero-quote {
+    font-size: 38px;
+  }
+
   .hero-title {
     transform: translateX(15px);
   }
@@ -981,7 +985,7 @@ footer {
     font-size: 40px;
   }
 
-  .project_card{
+  .projects_card{
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
