@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohd Amaan | Portfolio</title>
+    <link rel="canonical" href="https://amaan3110.github.io/portfolio/" />
+
+    <link
+      rel="shortcut icon"
+      href="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768982582/dienundpxhc2xrtcgzvj.png"
+      type="image/x-icon"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll/bundled/locomotive-scroll.css"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- SEO CONTENT -->
+    <meta
+      name="description"
+      content="Mohd Amaan is a Frontend and Full-Stack Developer who builds fast, responsive, and scalable web applications using Angular, React, JavaScript, Node.js, and modern UI practices."
+    />
+    <meta
+      name="keywords"
+      content="Mohd Amaan, frontend developer, full stack developer, Angular developer, React developer, JavaScript developer, Node.js developer, web developer, responsive web design, modern web apps, UI development, portfolio"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://amaan3110.github.io/portfolio/" />
+    <meta property="og:title" content="Mohd Amaan | Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Explore the portfolio of Mohd Amaan — a Frontend & Full-Stack Developer building modern, responsive web applications with Angular, React, Node.js, Express, and MongoDB."
+    />
+
+    <meta
+      property="og:image"
+      content="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987348/jududsqibqumapcbhbsj.png"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://amaan3110.github.io/portfolio/"
+    />
+    <meta
+      property="twitter:title"
+      content="Mohd Amaan | Full Stack Developer"
+    />
+    <meta
+      property="twitter:description"
+      content="Explore the portfolio of Mohd Amaan — a Frontend & Full-Stack Developer building modern, responsive web applications with Angular, React, Node.js, Express, and MongoDB."
+    />
+    <meta
+      property="twitter:image"
+      content="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987348/jududsqibqumapcbhbsj.png"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mohd Amaan",
+        "url": "https://amaan3110.github.io/portfolio/",
+        "jobTitle": "Frontend & Full-Stack Developer",
+        "description": "Mohd Amaan is a Frontend and Full-Stack Developer who builds modern, responsive, and scalable web applications using Angular, React, JavaScript, Node.js, and Express.",
+        "sameAs": [
+          "https://github.com/amaan3110",
+          "https://www.linkedin.com/in/mohd-amaan-03287b232",
+          "https://twitter.com/amaan_3110"
+        ]
+      }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-KCWYG8ZWDE"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-KCWYG8ZWDE");
+    </script>
+  </head>
+  <body>
+    <main data-scroll-container>
+      <div class="loader_screen">
+        <div class="greeting_text"></div>
+      </div>
+
+      <header>
+        <img
+          onerror="onImageError(this)"
+          src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768982582/dienundpxhc2xrtcgzvj.png"
+          data-fallback="https://ik.imagekit.io/webdev567/logo.png"
+        />
+
+        <div class="right_side font-bg">
+          <a href="#contact">Contact</a>
+          <a onclick="openResume()">Resume</a>
+        </div>
+      </header>
+
+      <section class="section-hero">
+        <div class="inner">
+          <div class="my_name">
+            <img
+              class="hero_text1 hero_text_img"
+              src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768982582/wjvbi4ij2tsbznq0uv4f.png"
+              data-fallback="https://ik.imagekit.io/webdev567/hero-text1.png"
+            />
+            <img
+              class="hero_text2 hero_text_img"
+              src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768982582/y67sajs0q98jeg4frco4.png"
+              data-fallback="https://ik.imagekit.io/webdev567/hero-text2_v2.png"
+            />
+            <h1 class="font-bg">Mohd Amaan</h1>
+            <img
+              class="star_img"
+              src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768982584/tthagkhbrdy9rd76ztik.webp"
+              data-fallback="https://ik.imagekit.io/webdev567/star.webp"
+            />
+          </div>
+
+          <div data-scroll data-scroll-speed="0.2" class="hero_heading">
+            <h2>
+              I build web experiences, interfaces, and products that feel fast,
+              clean, and effortless.
+            </h2>
+          </div>
+
+          <div data-scroll data-scroll-speed="0.15" class="hero_footer">
+            <p class="font-p">
+              Developer who cares way too much about spacing, shadows, and
+              smooth UX.
+            </p>
+          </div>
+
+          <div class="font-bg" id="timeDisplay"></div>
+        </div>
+        <div class="hero_grid"></div>
+      </section>
+
+      <section class="section-works">
+        <div class="inner">
+          <div class="section_header">
+            <h1 class="font-bg">
+              Some <span class="header_highlight_text">Selected Works</span>
+            </h1>
+          </div>
+
+          <div class="works">
+            <div class="works_track">
+              <div class="work_card">
+                <div class="media">
+                  <img
+                    src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987189/ukem5vhdosqnq2mzwaph.png"
+                    data-fallback="https://ik.imagekit.io/webdev567/work1.png"
+                  />
+                </div>
+                <div class="card_body">
+                  <h5>AlignBooks (Vanilla Js)</h5>
+                  <p>
+                    A guided learning section that helps users understand
+                    accounting concepts and practical usage of AlignBooks ERP,
+                    covering real workflows like billing, entries, reports, and
+                    compliance.
+                  </p>
+                </div>
+              </div>
+              <div class="work_card">
+                <div class="media">
+                  <img
+                    src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987189/x2a9t3fycp0yd5tecf4u.png"
+                    data-fallback="https://ik.imagekit.io/webdev567/work2.png"
+                  />
+                </div>
+                <div class="card_body">
+                  <h5>Learn with AlignBooks</h5>
+                  <p>
+                    A guided learning section that helps users understand
+                    accounting concepts and practical usage of AlignBooks ERP,
+                    covering real workflows like billing, entries, reports, and
+                    compliance.
+                  </p>
+                </div>
+              </div>
+              <div class="work_card">
+                <div class="media">
+                  <img
+                    src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987191/w5ldyouceqgtfnkaqj5g.png"
+                    data-fallback="https://ik.imagekit.io/webdev567/work3.png"
+                  />
+                </div>
+                <div class="card_body">
+                  <h5>GrowSkills (ReactJs)</h5>
+                  <p>
+                    An LMS platform designed to provide structured, real-world
+                    accounting and ERP training. Built with a focus on guided
+                    learning, progress tracking, and smooth content consumption
+                    across devices.
+                  </p>
+                </div>
+              </div>
+              <div class="work_card">
+                <div class="media">
+                  <img
+                    src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987190/dsjjuspn24mar7nzgtwi.png"
+                    data-fallback="https://ik.imagekit.io/webdev567/work4.png"
+                  />
+                </div>
+                <div class="card_body">
+                  <h5>AlignBooks Dashboard (Angular)</h5>
+                  <p>
+                    A modern ERP and accounting platform built to streamline
+                    billing, inventory, and compliance workflows for businesses.
+                    Focused on performance, usability, and scalable UI
+                    architecture.
+                  </p>
+                </div>
+              </div>
+              <div class="work_card">
+                <div class="media">
+                  <img
+                    src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768982583/tw1oj3izcsgv9exgujyw.png"
+                    data-fallback="https://ik.imagekit.io/webdev567/work5.png"
+                  />
+                </div>
+                <div class="card_body">
+                  <h5>AlignBooks Dashboard (Angular)</h5>
+                  <p>
+                    Implemented a smooth quick-search popup for dashboard menus,
+                    allowing users to search and open screens in seconds. This
+                    improved overall UX by reducing clicks and making navigation
+                    feel effortless
+                  </p>
+                </div>
+              </div>
+              <span>Coming Soon</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-experience">
+        <div class="inner">
+          <div class="section_header">
+            <h1 class="font-bg">
+              My <span class="header_highlight_text">Work Experience</span>
+            </h1>
+          </div>
+
+          <div class="experiences">
+            <div class="experience_card">
+              <img src="https://alignbooks.com/assets/logo.png" alt="" />
+              <div class="card-body">
+                <h5 class="font-bg">ALIGNBOOKS &bull; Software Developer</h5>
+                <p class="font-p">September 2024 - Present</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-testimonials">
+        <div class="inner">
+          <div class="section_header">
+            <h1 class="font-bg">
+              <span class="header_quote">They worked with me and said</span>
+              I am <span class="header_highlight_text">Worth It. </span>
+            </h1>
+          </div>
+          <div class="testimonials">
+            <div class="testimonial_card">
+              <span class="inverted-comma">“</span>
+              <p>
+                The UI implementation was clean, modern, and very close to the
+                design. Spacing, typography, responsiveness - everything felt
+                polished. Even small details like hover states and alignment
+                were handled properly, which made the overall experience feel
+                premium.
+              </p>
+              <h5>user_name <span>- Product Desginer</span></h5>
+            </div>
+            <div class="testimonial_card">
+              <span class="inverted-comma">“</span>
+              <p>
+                Reliable and consistent delivery throughout the project.
+                Requirements were understood quickly and the output was always
+                aligned with expectations. Updates were shared on time, and
+                issues were resolved without unnecessary back-and-forth. A very
+                smooth collaboration overall.
+              </p>
+              <h5>user_name <span>- Lead Mobile App Team</span></h5>
+            </div>
+            <div class="testimonial_card">
+              <span class="inverted-comma">“</span>
+              <p>
+                Solid grasp of Angular fundamentals and component-based
+                architecture. Reactive forms, validations, and form state were
+                implemented in a structured way, making the screens easy to
+                maintain and extend. The work quality was consistent and the
+                codebase stayed clean.
+              </p>
+              <h5>user_name <span>- SR. Angular Developer</span></h5>
+            </div>
+            <div class="testimonial_card">
+              <span class="inverted-comma">“</span>
+              <p>
+                Design handoff was executed accurately with great attention to
+                detail. Layouts were responsive across devices and the final UI
+                looked exactly how it was expected to. Communication was clear,
+                changes were handled calmly, and the output stayed consistent
+                throughout.
+              </p>
+              <h5>user_name <span>- Graphic Designer</span></h5>
+            </div>
+            <div class="testimonial_card">
+              <span class="inverted-comma">“</span>
+              <p>
+                The interface feels fast, interactive, and user-friendly.
+                Micro-interactions and animations were added in a tasteful way
+                without making the UI feel heavy. Overall, the experience feels
+                smooth and professional, with a strong balance between design
+                and performance.
+              </p>
+              <h5>user_name <span>- UI/UX Desginer</span></h5>
+            </div>
+          </div>
+
+          <div class="printer">
+            <img
+              class="printer_img"
+              src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768982584/w6p1h7lpudpdlhzkvvtm.png"
+              data-fallback="https://ik.imagekit.io/webdev567/printer_v2.png"
+            />
+          </div>
+
+          <div class="testimonial_btns">
+            <button onclick="moveTestimonialCards('prev')">
+              <i class="ri-arrow-left-line"></i>
+            </button>
+            <button onclick="moveTestimonialCards('next')">
+              <i class="ri-arrow-right-line"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="animation_container font-bg">
+        <div class="text_wrapper">
+          <div class="texts">
+            <div class="text">thinking</div>
+            <div class="text">designing</div>
+            <div class="text">building</div>
+            <div class="text">shipping</div>
+          </div>
+          <div class="texts">
+            <div class="text">designing</div>
+            <div class="text">shipping</div>
+            <div class="text">thinking</div>
+            <div class="text">building</div>
+          </div>
+          <div class="texts">
+            <div class="text">building</div>
+            <div class="text">thinking</div>
+            <div class="text">shipping</div>
+            <div class="text">designing</div>
+          </div>
+          <div class="texts">
+            <div class="text">shipping</div>
+            <div class="text">building</div>
+            <div class="text">designing</div>
+            <div class="text">thinking</div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section-about">
+        <div class="inner">
+          <div class="section_header">
+            <h1 class="font-bg">
+              About <span class="header_highlight_text">Me</span>
+            </h1>
+          </div>
+
+          <div class="about_me">
+            <div class="about_me_left">
+              <p class="font-p">
+                I'm a software developer with <strong>1+ years </strong> of
+                experience currently at ALIGNBOOKS, turning complex problems
+                into clean, usable digital experiences. I convert Figma into
+                pixel-perfect production code:
+              </p>
+              <div class="skills font-bg">
+                <span>Frontend</span>
+                <span>Backend</span>
+                <span>Database</span>
+              </div>
+
+              <p class="font-p mt-5">
+                I’ve worked on products like,<strong>
+                  AlignBooks, AlignCart</strong
+                >, and <strong>GrowSkills</strong> which used by thousand of
+                users.
+              </p>
+
+              <p class="font-p mt-10">My strength lies in:</p>
+
+              <div class="skills font-bg">
+                <span>ReactJs</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Javascript</span>
+                <span>NodeJs</span>
+                <span>Typescript</span>
+                <span>Angular</span>
+              </div>
+
+              <p class="font-p mt-10">
+                I’ve also build some cool animated websites using GSAP.
+              </p>
+              <div class="skills font-bg">
+                <span
+                  ><a href="https://amaan3110.github.io/animated-websites/"
+                    >Visit</a
+                  ></span
+                >
+              </div>
+
+              <p class="font-p mt-10">Tools i use for my daily survival:</p>
+
+              <div class="skills font-bg">
+                <span>VSCode</span>
+                <span>ChatGPT</span>
+                <span>Figma</span>
+                <span>Google</span>
+              </div>
+
+              <p class="font-p mt-10">
+                Things i love to do other than
+                <strong>"git push -u origin master"</strong>
+              </p>
+
+              <div class="skills font-bg">
+                <span>Playing Cricket</span>
+                <span>Listening to Music</span>
+                <span>Exploring New Tech</span>
+                <span>Travelling</span>
+              </div>
+
+              <p class="font-p mt-10 text-base company_name">
+                I've been at
+                <a href="#">
+                  <img src="https://alignbooks.com/assets/logo.png" alt="" />
+                </a>
+                since:
+                <span class="font-bg" id="startDateDisplay"></span>
+              </p>
+            </div>
+            <div class="about_me_right">
+              <div class="about_visuals">
+                <img
+                  class="about_image"
+                  src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987348/jududsqibqumapcbhbsj.png"
+                  data-fallback="https://ik.imagekit.io/webdev567/background-image.png"
+                />
+                <img
+                  class="profile"
+                  src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987349/zfmppfu9jdwdaiaw6px5.png"
+                  data-fallback="https://ik.imagekit.io/webdev567/profile.png"
+                />
+
+                <div class="about_quote font-s">
+                  Design is not just what you see, it’s how it makes you feel.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-life">
+        <div class="inner">
+          <div class="section_header">
+            <h1 class="font-bg">
+              A Visual <span class="header_highlight_text">Diary</span>
+            </h1>
+          </div>
+
+          <div class="life">
+            <div class="bento_grid">
+              <div class="card card-1 wide">
+                <img
+                  src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987558/qre36hf4hwkwwgm5rmyg.jpg"
+                  data-fallback="https://ik.imagekit.io/webdev567/mumbai-2_ME.jpg"
+                />
+              </div>
+              <div class="card card-2">
+                <img
+                  src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987555/yia0l6awzlwlmcgbxzdp.jpg"
+                  data-fallback="https://ik.imagekit.io/webdev567/sangam_ME.jpg"
+                />
+              </div>
+
+              <div class="card card-3">
+                <img
+                  src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987553/qoklwalnu1suyvlil6rd.jpg"
+                  data-fallback="https://ik.imagekit.io/webdev567/arail_ME.jpg"
+                />
+              </div>
+              <div class="card card-4">
+                <h5 class="font-bg">Not always coding 😄</h5>
+                <p class="font-p">Sometimes I pause… and enjoy life too.</p>
+              </div>
+              <div class="card card-5">
+                <img
+                  src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987556/mlklq68jre8grmoym46b.jpg"
+                  data-fallback="https://ik.imagekit.io/webdev567/mumbai_ME.jpg"
+                />
+              </div>
+
+              <div class="card card-6">
+                <img
+                  src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987563/zs0miejqrhirgckygxfn.jpg"
+                  data-fallback="https://ik.imagekit.io/webdev567/christmas-office_ME.jpg"
+                />
+              </div>
+              <div class="card card-7 wide">
+                <img
+                  src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987558/uai0vpglwkzpggxqdeae.jpg"
+                  data-fallback="https://ik.imagekit.io/webdev567/christmas-office_ME.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="old_portfolio">
+        <div onclick="redirectToOld()" class="bubble">
+          <div class="dot"></div>
+          <p class="font-bg">Old Portfolio</p>
+        </div>
+      </div>
+
+      <section id="contact" class="section-contact">
+        <div class="inner">
+          <div class="section_header">
+            <h1 class="font-bg">
+              Let's <span class="header_highlight_text">Connect</span>
+            </h1>
+          </div>
+
+          <div class="contact_body">
+            <div class="form_container">
+              <form id="story-form" class="story-form font-bg">
+                <p>
+                  Yo! I’m
+                  <input
+                    type="text"
+                    placeholder="your legendary name"
+                    required
+                    name="name"
+                  />
+                  and I’m looking for someone who can help me with
+                  <input
+                    type="text"
+                    placeholder="website / app / design / magic"
+                    required
+                    name="project"
+                  />. You can reach me at
+                  <input
+                    type="email"
+                    placeholder="your@email.com"
+                    required
+                    name="email"
+                  />
+                  (don’t worry, no spam… unless you ask 😭).
+                </p>
+
+                <p>
+                  Here’s the full tea ☕👇
+                  <textarea
+                    placeholder="Tell me what you want... features, vibes, deadlines, budget 👀"
+                    required
+                    name="message"
+                  ></textarea>
+                </p>
+
+                <button type="submit">git commit -m "send"</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <h1 class="font-i">
+          Turning ideas into pixels (and bugs into lessons)
+        </h1>
+
+        <a class="font-bg lets-connect-link" href="#contact"
+          >Let's Work Together <i class="ri-arrow-right-up-long-line"></i
+        ></a>
+        <div class="social_links font-bg">
+          <a href="#">LinkedIn</a>
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+          <a href="#">Github</a>
+        </div>
+
+        <img
+          src="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768982584/xoifvssybiaxk2qz0ijc.png"
+          data-fallback="https://ik.imagekit.io/webdev567/post-ticket.png"
+        />
+      </footer>
+    </main>
+
+    <div id="contact_form_status" class="contact_form_status">
+      <div class="status_modal">
+        <div id="status_close" class="status_close">
+          <i class="ri-close-line"></i>
+        </div>
+        <iframe
+          src="https://lottie.host/embed/1da63209-1386-449c-b39f-0435e2b55f68/oaZk6rlXBS.lottie"
+          frameborder="0"
+        ></iframe>
+        <div class="status_text font-bg">
+          ✨ Done! Your message is in my inbox.
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/bundled/locomotive-scroll.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
