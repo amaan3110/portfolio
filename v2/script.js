@@ -2,6 +2,7 @@
   const scroll = new LocomotiveScroll({
     el: document.querySelector("[data-scroll-container]"),
     smooth: true,
+    lerp: 0.1,
   });
 })();
 
@@ -50,7 +51,14 @@ tl.from(star_img, {
       clipPath: "inset(0 0% 0 0)",
       duration: 1,
     },
-    "<"
+    "<",
+  )
+  .to(
+    hero_text_container,
+    {
+      x: isMobile ? 15 : 0,
+    },
+    "<",
   )
   .to(star_img, {
     height: isMobile ? 30 : 40,
@@ -61,7 +69,6 @@ tl.from(star_img, {
   })
   .to(hero_text_container, {
     y: 0,
-    x: isMobile ? 15 : 0,
     duration: 1,
   })
   .to(
@@ -70,7 +77,7 @@ tl.from(star_img, {
       background: "transparent",
       duartion: 1,
     },
-    "<"
+    "<",
   )
   .from(
     "header",
@@ -79,10 +86,10 @@ tl.from(star_img, {
       opacity: 0,
       duration: 1,
     },
-    "<"
+    "<",
   )
-  .from(".hero_text_img", {
-    opacity: 0,
+  .to(".hero_text_img", {
+    opacity: 1,
     duration: 0.5,
     onComplete: () => {
       document.querySelector(".loader_screen")?.remove();
@@ -125,7 +132,7 @@ function onImageError(img) {
 function openResume() {
   window.open(
     `https://ik.imagekit.io/webdev567/Amaan_Resume.pdf?v=${Date.now()}`,
-    "_blank"
+    "_blank",
   );
 }
 
@@ -177,9 +184,8 @@ function updateTime() {
     hour12: false,
   });
 
-  document.getElementById(
-    "timeDisplay"
-  ).innerHTML = `My Local Time<br/>${time} IST (Asia/Kolkata)`;
+  document.getElementById("timeDisplay").innerHTML =
+    `My Local Time<br/>${time} IST (Asia/Kolkata)`;
 }
 updateTime();
 setInterval(updateTime, 1000);
@@ -346,6 +352,10 @@ function moveTestimonialCards(direction) {
   placeTestimonialCards();
 }
 
+if (isTablet) {
+  setInterval(() => moveTestimonialCards("next"), 5000);
+}
+
 // Live Timer (since job start date)
 function startLiveTimer(startDateStr, elId) {
   const startDate = new Date(startDateStr); // "9/9/2024"
@@ -368,11 +378,11 @@ function startLiveTimer(startDateStr, elId) {
     const days = Math.floor(totalSeconds / 86400);
     const hours = String(Math.floor((totalSeconds % 86400) / 3600)).padStart(
       2,
-      "0"
+      "0",
     );
     const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(
       2,
-      "0"
+      "0",
     );
     const seconds = String(totalSeconds % 60).padStart(2, "0");
 
@@ -604,7 +614,7 @@ function getUTMParams() {
 
   try {
     const locationData = await fetch(
-      "https://ipinfo.io/json?token=abec968d6caa8e"
+      "https://ipinfo.io/json?token=abec968d6caa8e",
     ).then((res) => res.json());
     utm.location = `${locationData.city}, ${locationData.region}, ${locationData.country}`;
   } catch (err) {

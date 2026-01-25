@@ -5,7 +5,7 @@
   });
 })();
 
-gsap.registerPlugin(Draggable, InertiaPlugin, ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 CustomEase.create("customEase", "0.16,1,0.3,1");
 
@@ -25,7 +25,7 @@ words.forEach((word) => {
         gsap.to(".loader_text", { opacity: 1 });
       },
     },
-    "+=0.2"
+    "+=0.2",
   );
 });
 tl.from(".loader h1", {
@@ -53,7 +53,7 @@ tl.from(".loader h1", {
       duration: 1,
       ease: "power3.out",
     },
-    "-=0.5"
+    "-=0.5",
   )
   .to(
     ".loader_2",
@@ -65,7 +65,7 @@ tl.from(".loader h1", {
         document.querySelector(".loader-container").remove();
       },
     },
-    "-=0.7"
+    "-=0.7",
   );
 
 function projectCards({ year, type, name, link }) {
@@ -293,6 +293,27 @@ function getFormattedTimestamp() {
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
+function redirectToNew() {
+  const { utm_source, utm_medium } = getUTMParams();
+
+  const newSource = utm_source ? `${utm_source}_new` : "direct_old";
+  const newMedium = utm_medium ? `${utm_medium}_new` : "none_old";
+
+  const url = new URL("https://amaan3110.github.io/portfolio/");
+
+  url.searchParams.set("utm_source", newSource);
+  url.searchParams.set("utm_medium", newMedium);
+
+  window.open(url.toString(), "_blank");
+}
+
+function openResume() {
+  window.open(
+    `https://ik.imagekit.io/webdev567/Amaan_Resume.pdf?v=${Date.now()}`,
+    "_blank",
+  );
+}
+
 function getDeviceType() {
   const width = window.innerWidth;
 
@@ -336,7 +357,7 @@ function getUTMParams() {
 
   try {
     const locationData = await fetch(
-      "https://ipinfo.io/json?token=abec968d6caa8e"
+      "https://ipinfo.io/json?token=abec968d6caa8e",
     ).then((res) => res.json());
     utm.location = `${locationData.city}, ${locationData.region}, ${locationData.country}`;
   } catch (err) {

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mohd Amaan | Portfolio</title>
-    <link rel="canonical" href="https://amaan3110.github.io/portfolio/" />
+    <link rel="canonical" href="https://amaan3110.github.io/portfolio/v2" />
 
     <link
       rel="shortcut icon"
@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="./style.css" />
 
-    <!-- SEO CONTENT -->
+    <!-- SEO META TAGS -->
     <meta
       name="description"
       content="Mohd Amaan is a Frontend and Full-Stack Developer who builds fast, responsive, and scalable web applications using Angular, React, JavaScript, Node.js, and modern UI practices."
@@ -33,22 +33,28 @@
       name="keywords"
       content="Mohd Amaan, frontend developer, full stack developer, Angular developer, React developer, JavaScript developer, Node.js developer, web developer, responsive web design, modern web apps, UI development, portfolio"
     />
+
+    <!-- Open Graph (for WhatsApp, LinkedIn, Facebook) -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://amaan3110.github.io/portfolio/" />
+    <meta
+      property="og:url"
+      content="https://amaan3110.github.io/portfolio/v2"
+    />
     <meta property="og:title" content="Mohd Amaan | Full Stack Developer" />
     <meta
       property="og:description"
       content="Explore the portfolio of Mohd Amaan — a Frontend & Full-Stack Developer building modern, responsive web applications with Angular, React, Node.js, Express, and MongoDB."
     />
-
     <meta
       property="og:image"
       content="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987348/jududsqibqumapcbhbsj.png"
     />
+
+    <!-- Twitter Card -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
-      content="https://amaan3110.github.io/portfolio/"
+      content="https://amaan3110.github.io/portfolio/v2"
     />
     <meta
       property="twitter:title"
@@ -63,18 +69,90 @@
       content="https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987348/jududsqibqumapcbhbsj.png"
     />
 
+    <!-- Google Fonts: Preconnect (fastest improvement) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Just+Me+Again+Down+Here&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="preload"
+      href="./fonts/AuthenticSignature.otf"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./fonts/instrumental.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Mohd Amaan",
-        "url": "https://amaan3110.github.io/portfolio/",
-        "jobTitle": "Frontend & Full-Stack Developer",
-        "description": "Mohd Amaan is a Frontend and Full-Stack Developer who builds modern, responsive, and scalable web applications using Angular, React, JavaScript, Node.js, and Express.",
-        "sameAs": [
-          "https://github.com/amaan3110",
-          "https://www.linkedin.com/in/mohd-amaan-03287b232",
-          "https://twitter.com/amaan_3110"
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://amaan3110.github.io/portfolio/v2/#person",
+            "name": "Mohd Amaan",
+            "url": "https://amaan3110.github.io/portfolio/v2/",
+            "image": "https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987348/jududsqibqumapcbhbsj.png",
+            "jobTitle": "Frontend & Full Stack Developer",
+            "description": "Mohd Amaan is a Frontend & Full Stack Developer specializing in Angular, React, JavaScript, Node.js, Express, and MongoDB. He builds fast, responsive, and scalable web applications.",
+            "sameAs": [
+              "https://github.com/amaan3110",
+              "https://www.linkedin.com/in/mohd-amaan-03287b232",
+              "https://twitter.com/amaan_3110"
+            ],
+            "knowsAbout": [
+              "Angular",
+              "React",
+              "JavaScript",
+              "TypeScript",
+              "Node.js",
+              "Express.js",
+              "MongoDB",
+              "HTML",
+              "CSS",
+              "Frontend Development",
+              "Full Stack Development",
+              "Responsive Web Design"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://amaan3110.github.io/portfolio/v2/#website",
+            "url": "https://amaan3110.github.io/portfolio/v2/",
+            "name": "Mohd Amaan Portfolio",
+            "description": "Portfolio website of Mohd Amaan — Frontend & Full Stack Developer.",
+            "inLanguage": "en-IN",
+            "publisher": {
+              "@id": "https://amaan3110.github.io/portfolio/v2/#person"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://amaan3110.github.io/portfolio/v2/#webpage",
+            "url": "https://amaan3110.github.io/portfolio/v2/",
+            "name": "Mohd Amaan | Frontend & Full Stack Developer",
+            "description": "Explore projects and experience of Mohd Amaan — building modern web apps using Angular, React, and Node.js.",
+            "isPartOf": {
+              "@id": "https://amaan3110.github.io/portfolio/v2/#website"
+            },
+            "about": {
+              "@id": "https://amaan3110.github.io/portfolio/v2/#person"
+            },
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "url": "https://res.cloudinary.com/dzmu2pbjn/image/upload/v1768987348/jududsqibqumapcbhbsj.png"
+            }
+          }
         ]
       }
     </script>
@@ -359,7 +437,7 @@
         </div>
       </section>
 
-      <div class="animation_container font-bg">
+      <div class="animation_container grainy-bg font-bg">
         <div class="text_wrapper">
           <div class="texts">
             <div class="text">thinking</div>
@@ -549,7 +627,7 @@
         </div>
       </section>
 
-      <div class="old_portfolio">
+      <div class="old_portfolio grainy-bg">
         <div onclick="redirectToOld()" class="bubble">
           <div class="dot"></div>
           <p class="font-bg">Old Portfolio</p>
@@ -616,10 +694,30 @@
           >Let's Work Together <i class="ri-arrow-right-up-long-line"></i
         ></a>
         <div class="social_links font-bg">
-          <a href="#">LinkedIn</a>
-          <a href="#">Instagram</a>
-          <a href="#">Twitter</a>
-          <a href="#">Github</a>
+          <a
+            href="https://www.linkedin.com/in/mohd-amaan-03287b232"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <a
+            href="https://www.instagram.com/amaan_.31"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram</a
+          >
+          <a
+            href="https://twitter.com/amaan_3110"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Twitter</a
+          >
+          <a
+            href="https://github.com/amaan3110"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Github</a
+          >
         </div>
 
         <img
@@ -649,7 +747,6 @@
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/bundled/locomotive-scroll.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
     <script src="./script.js"></script>
   </body>
 </html>
