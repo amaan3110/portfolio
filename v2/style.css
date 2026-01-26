@@ -714,7 +714,8 @@ header .right_side a {
   border-bottom: 2px solid #ececec;
   outline: none;
   font-size: 18px;
-  background-color: #eeeeee80;
+  background-color: #eeeeee3c;
+  /* background-color: #eeeeee80; */
   padding: 0 4px;
   font-weight: 500;
 }
@@ -990,7 +991,7 @@ footer img {
 
 @media (max-width: 768px) {
   :root {
-    --hero-heading: 58px;
+    --hero-heading: 54px;
     --heading: 42px;
   }
 
@@ -1005,7 +1006,7 @@ footer img {
   }
 
   .hero_heading h2 {
-    font-size: 48px;
+    font-size: 44px;
   }
 
   .works,
@@ -1015,7 +1016,7 @@ footer img {
   }
 
   .work_card {
-    width: 300px;
+    width: 350px;
   }
 
   .work_card .media {
@@ -1071,6 +1072,18 @@ footer img {
     grid-column: span 2;
     min-height: 150px;
   }
+
+  footer {
+    padding-top: 24px;
+  }
+
+  footer h1 {
+    font-size: 32px;
+  }
+
+  footer img {
+    display: none;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1124,6 +1137,10 @@ footer img {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .work_card {
+    width: 300px;
+  }
+
   .testimonial_card {
     min-width: 80%;
   }
@@ -1159,7 +1176,7 @@ footer img {
   }
 
   .story-form p {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .story-form input {
@@ -1180,17 +1197,5 @@ footer img {
     width: 100%;
     height: 120px;
     overflow: hidden;
-  }
-
-  footer {
-    padding-top: 24px;
-  }
-
-  footer h1 {
-    font-size: 32px;
-  }
-
-  footer img {
-    display: none;
   }
 }

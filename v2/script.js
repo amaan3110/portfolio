@@ -56,7 +56,7 @@ tl.from(star_img, {
   .to(
     hero_text_container,
     {
-      x: isMobile ? 15 : 0,
+      x: isTablet ? 15 : 0,
     },
     "<",
   )
@@ -159,7 +159,7 @@ function placeHeroTextImages() {
   img2.style.bottom = `0px`;
   img2.style.top = "auto";
 
-  img1.style.left = isMobile ? "auto" : `${h1Left - img1.offsetWidth + 10}px`;
+  img1.style.left = isTablet ? "auto" : `${h1Left - img1.offsetWidth + 10}px`;
 
   img2.style.left = isMobile ? "auto" : `${h1Right + gap}px`;
 }
