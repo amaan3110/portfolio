@@ -886,10 +886,24 @@ footer .social_links {
   gap: 1rem;
 }
 
+footer .social_link {
+  height: 20px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
 footer .social_links a {
   font-size: 18px;
   text-decoration: none;
   color: var(--text-color);
+  display: block;
+  line-height: 20px;
+  transition: all 0.3s ease;
+}
+
+.social_link:hover a:nth-child(1),
+.social_link:hover a:nth-child(2) {
+  transform: translateY(-100%);
 }
 
 footer img {
