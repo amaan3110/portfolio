@@ -202,6 +202,7 @@ header .right_side a {
   z-index: 10;
   margin: 0 auto;
   transform: translateY(calc(50vh - 125px));
+  pointer-events: none;
 }
 
 .my_name h1 {
@@ -240,6 +241,7 @@ header .right_side a {
   margin-block: 3rem;
   position: relative;
   z-index: 5;
+  pointer-events: none;
 }
 
 .hero_heading h2 {
@@ -282,6 +284,7 @@ header .right_side a {
   text-align: center;
   position: relative;
   z-index: 5;
+  pointer-events: none;
 }
 
 .hero_footer p {
@@ -303,6 +306,7 @@ header .right_side a {
   position: relative;
   z-index: 5;
   /* opacity: 0; */
+  pointer-events: none;
 }
 
 /* Works Section */
