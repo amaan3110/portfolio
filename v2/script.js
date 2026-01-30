@@ -136,11 +136,33 @@ function onImageError(img) {
 }
 
 // Open Resume in New Tab
-function openResume() {
+async function openResume() {
   window.open(
     `https://ik.imagekit.io/webdev567/Amaan_Resume.pdf?v=${Date.now()}`,
     "_blank",
   );
+
+  if (sessionStorage.getItem("resumeClicked")) return;
+
+  const { utm_source, utm_medium } = getUTMParams();
+
+  const payload = {
+    name: "resume_clicked",
+    email: "",
+    project: "",
+    message: "",
+    utm_source,
+    utm_medium,
+  };
+
+  const serverRes = await ApiCall(
+    "https://sheetdb.io/api/v1/d150xowibfx7o",
+    payload,
+  );
+
+  if (serverRes.created == 1) {
+    sessionStorage.setItem("resumeClicked", "true");
+  }
 }
 
 // Hero Section Animation
@@ -435,21 +457,24 @@ contact_form.addEventListener("submit", async (e) => {
   btn.disabled = true;
   btn.innerHTML = '<i class="ri-loader-4-line btn-spinner"></i>';
 
+  const { utm_source, utm_medium } = getUTMParams();
+
+  const payload = {
+    name,
+    email,
+    project,
+    message,
+    utm_source,
+    utm_medium,
+  };
+
   try {
-    const response = await fetch("https://sheetdb.io/api/v1/d150xowibfx7o", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ data: { name, email, project, message } }),
-    });
+    const serverRes = await ApiCall(
+      "https://sheetdb.io/api/v1/d150xowibfx7o",
+      payload,
+    );
 
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
-    const data = await response.json();
-    if (data.created === 1) {
+    if (serverRes.created === 1) {
       console.log("✅ Form data sent to SheetDB");
       contact_form.reset();
 
@@ -461,8 +486,7 @@ contact_form.addEventListener("submit", async (e) => {
     } else {
       console.error("❌ Error sending form data");
     }
-  } catch (error) {
-    console.error("❌ Error sending form data:", error);
+  } catch (_) {
   } finally {
     btn.classList.remove("loading");
     btn.disabled = false;
@@ -476,21 +500,25 @@ closeBtn.addEventListener("click", () => {
 
 function showHideModal(type) {
   if (type == "show") {
-    $("#contact_form_status").show();
-
-    gsap.from(".status_modal", {
+    gsap.set(".status_modal", {
       y: 100,
       opacity: 0,
+    });
+
+    $("#contact_form_status").show();
+
+    gsap.to(".status_modal", {
+      y: 0,
+      opacity: 1,
     });
   } else if (type == "hide") {
     gsap.to(".status_modal", {
       y: 100,
       opacity: 0,
+      onComplete: () => {
+        $("#contact_form_status").hide();
+      },
     });
-
-    setTimeout(() => {
-      $("#contact_form_status").hide();
-    }, 500);
   }
 }
 
@@ -613,9 +641,7 @@ function getUTMParams() {
 }
 
 (async () => {
-  if (sessionStorage.getItem("utmDataSent")) {
-    return;
-  }
+  if (sessionStorage.getItem("utmDataSent_v2")) return;
 
   const utm = getUTMParams();
 
@@ -630,18 +656,29 @@ function getUTMParams() {
   }
 
   if (utm.utm_source || utm.utm_medium) {
-    try {
-      await fetch("https://sheetdb.io/api/v1/01evwz914tipz", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ data: utm }),
-      });
+    const serverRes = await ApiCall(
+      "https://sheetdb.io/api/v1/01evwz914tipz",
+      utm,
+    );
+
+    if (serverRes.created == 1) {
       console.log("✅ UTM data sent to SheetDB");
-      sessionStorage.setItem("utmDataSent", "true");
-    } catch (error) {
-      console.error("❌ Error sending UTM data:", error);
+      sessionStorage.setItem("utmDataSent_v2", "true");
     }
   }
 })();
+
+async function ApiCall(url, payload) {
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data: payload }),
+    });
+
+    const data = await res.json();
+    return data;
+  } catch (_) {}
+}

@@ -299,7 +299,7 @@ function redirectToNew() {
   const newSource = utm_source ? `${utm_source}_old` : "direct_old";
   const newMedium = utm_medium ? `${utm_medium}_old` : "none_old";
 
-  const url = new URL("https://amaan3110.github.io/portfolio/");
+  const url = new URL("https://amaan3110.github.io/portfolio/v2/");
 
   url.searchParams.set("utm_source", newSource);
   url.searchParams.set("utm_medium", newMedium);
@@ -349,7 +349,7 @@ function getUTMParams() {
 }
 
 (async () => {
-  if (sessionStorage.getItem("utmDataSent")) {
+  if (sessionStorage.getItem("utmDataSent_v1")) {
     return;
   }
 
@@ -375,7 +375,7 @@ function getUTMParams() {
         body: JSON.stringify({ data: utm }),
       });
       console.log("✅ UTM data sent to SheetDB");
-      sessionStorage.setItem("utmDataSent", "true");
+      sessionStorage.setItem("utmDataSent_v1", "true");
     } catch (error) {
       console.error("❌ Error sending UTM data:", error);
     }
