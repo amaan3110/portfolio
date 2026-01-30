@@ -157,7 +157,6 @@ header {
   background-color: transparent;
   position: fixed;
   top: 0;
-  z-index: 99;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -202,6 +201,7 @@ header .right_side a {
   position: relative;
   z-index: 10;
   margin: 0 auto;
+  transform: translateY(calc(50vh - 125px));
 }
 
 .my_name h1 {
@@ -347,13 +347,6 @@ header .right_side a {
   transition: all 0.3s ease;
 }
 
-.work_card:hover {
-  background-color: var(--secondary);
-  transform: translateY(-2px);
-  color: #fff;
-  border-color: var(--secondary);
-}
-
 .work_card:nth-of-type(even) {
   margin-top: 40px;
 }
@@ -363,10 +356,6 @@ header .right_side a {
   max-height: 350px;
   background-color: #10528b;
   overflow: hidden;
-}
-
-.work_card:hover .media {
-  box-shadow: var(--box-shadow);
 }
 
 .work_card .media img {
@@ -459,12 +448,6 @@ header .right_side a {
   transition: background-color 0.3s ease;
 }
 
-.testimonial_card:hover {
-  background-color: var(--red);
-  color: #fff;
-  box-shadow: var(--box-shadow);
-}
-
 .testimonial_card h5 {
   font-size: 16px;
   line-height: 1;
@@ -474,6 +457,16 @@ header .right_side a {
 .testimonial_card h5 span {
   font-size: 12px;
   white-space: nowrap;
+  display: block;
+  margin-top: 6px;
+}
+
+.testimonial_card h5 img {
+  display: inline;
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .testimonial_card p {
@@ -604,7 +597,7 @@ header .right_side a {
 }
 
 .about_me_left p {
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .about_me_left p strong {
@@ -855,7 +848,7 @@ header .right_side a {
 footer {
   width: 100%;
   padding: 48px 5%;
-  background: linear-gradient(to bottom, #fafafafa 20%, #d2cfcf);
+  background: linear-gradient(to bottom, #fafafafa 20%, #ececec);
   position: relative;
   /* text-align: center; */
   overflow: hidden;

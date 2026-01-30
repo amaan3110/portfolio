@@ -25,9 +25,9 @@ gsap.set(hero_text, {
   clipPath: "inset(0 100% 0 0)",
 });
 
-gsap.set(hero_text_container, {
-  y: window.innerHeight / 2 - hero_text_container.offsetHeight,
-});
+// gsap.set(hero_text_container, {
+//   y: window.innerHeight / 2 - hero_text_container.offsetHeight,
+// });
 
 tl.from(star_img, {
   y: "100%",
@@ -85,6 +85,13 @@ tl.from(star_img, {
       y: -20,
       opacity: 0,
       duration: 1,
+    },
+    "<",
+  )
+  .to(
+    "header",
+    {
+      zIndex: 99,
     },
     "<",
   )
@@ -300,8 +307,8 @@ function printerCardsAnimation() {
       delay: i * 0.5,
       scrollTrigger: {
         trigger: section,
-        start: "top 50%",
-        toggleActions: "play none none reverse",
+        start: "top 30%",
+        toggleActions: "play none none none",
       },
     });
   });

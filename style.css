@@ -807,7 +807,6 @@ footer {
   align-items: center;
   justify-content: center;
   transform: translateY(-25px);
-  display: none;
 }
 
 .new_portfolio .bubble {
