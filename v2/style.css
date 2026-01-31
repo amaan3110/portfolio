@@ -337,7 +337,7 @@ header .right_side a {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 24px;
+  padding: 20px;
   transition: all 0.3s ease;
 }
 
@@ -348,7 +348,7 @@ header .right_side a {
 .work_card .media {
   width: 100%;
   max-height: 350px;
-  background-color: #10528b;
+  background: linear-gradient(to bottom, #10528b, #001f39);
   overflow: hidden;
 }
 
@@ -372,6 +372,14 @@ header .right_side a {
   font-size: 14px;
   margin-top: 8px;
   font-family: "Poppins", sans-serif;
+}
+
+.work_card .card_body a {
+  text-decoration: none;
+  color: var(--dark-blue);
+  font-size: 13px;
+  margin-top: 6px;
+  display: block;
 }
 
 /* Experience Section */
@@ -525,6 +533,55 @@ header .right_side a {
   border: none;
 }
 
+/* Projects Section */
+
+.section-projects .header_highlight_text {
+  background-color: var(--secondary);
+}
+
+.projects {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.project_card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project_card img {
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.project_card .wide {
+  width: 100%;
+  height: 200px;
+}
+
+.project_card .long {
+  width: 100%;
+  height: 300px;
+}
+
+.project_card h5 {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 500;
+}
+
+.project_card p {
+  font-size: 14px;
+}
+
 /* About Section */
 
 .section-about .header_highlight_text {
@@ -561,6 +618,7 @@ header .right_side a {
 
 .profile {
   width: 95%;
+  max-width: 550px;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
@@ -990,7 +1048,7 @@ footer img {
   font-size: 14px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   :root {
     --hero-heading: 54px;
     --heading: 42px;
@@ -1012,7 +1070,8 @@ footer img {
 
   .works,
   .testimonials,
-  .life {
+  .life,
+  .projects {
     margin-top: 3rem;
   }
 
@@ -1045,13 +1104,17 @@ footer img {
     display: flex;
   }
 
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .about_visuals {
     width: 100%;
   }
 
   .about_me {
     flex-direction: column-reverse;
-    gap: 2rem;
+    gap: 3rem;
   }
 
   .about_me_left,
@@ -1061,7 +1124,7 @@ footer img {
   }
 
   .text {
-    font-size: 24px;
+    font-size: 16px;
   }
 
   .bento_grid {
@@ -1134,10 +1197,6 @@ footer img {
     rotate: 0deg;
   }
 
-  .texts {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .work_card {
     width: 300px;
   }
@@ -1152,6 +1211,10 @@ footer img {
 
   .testimonial_card h5 span {
     font-size: 12px;
+  }
+
+  .projects {
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .about_me {
@@ -1191,12 +1254,5 @@ footer img {
 
   .story-form button {
     font-size: 16px;
-  }
-
-  .animation_container,
-  .texts {
-    width: 100%;
-    height: 120px;
-    overflow: hidden;
   }
 }

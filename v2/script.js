@@ -19,7 +19,7 @@ const greetings = ["Hello", "नमस्ते", "Bonjour", "Hola", "こんに�
 const tl = gsap.timeline({ ease: "power2.inOut" });
 
 const isMobile = window.innerWidth < 600;
-const isTablet = window.innerWidth < 780;
+const isTablet = window.innerWidth < 992;
 
 gsap.set(hero_text, {
   clipPath: "inset(0 100% 0 0)",
@@ -268,7 +268,8 @@ hero_grid.addEventListener("mouseover", (e) => {
 // Work Section Animation
 const track = document.querySelector(".works_track");
 const extraScroll = isMobile ? 75 : 150;
-const startPos = isTablet ? "top" : "-=150";
+const startPos =
+  window.innerWidth <= 992 || window.innerWidth >= 1440 ? "top" : "-=150";
 gsap.to(track, {
   x: () => track.offsetWidth - track.scrollWidth - extraScroll,
   ease: "none",
@@ -284,7 +285,7 @@ gsap.to(track, {
 
 // Slider Text Animation
 const text_wrapper = document.querySelector(".text_wrapper");
-let text_height = isMobile ? 120 : 60;
+let text_height = 60;
 (function slideTextAnimation() {
   text_wrapper.style.transition = `transform 600ms ease`;
   text_wrapper.style.transform = `translateY(-${text_height}px)`;
