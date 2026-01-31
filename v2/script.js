@@ -253,6 +253,18 @@ window.addEventListener("resize", () => {
   createGrid();
 });
 
+hero_grid.addEventListener("mouseover", (e) => {
+  const cell = e.target;
+  if (!cell.classList.contains("grid-cell")) return;
+
+  cell.classList.add("hovered");
+
+  clearTimeout(cell._hoverTimeout);
+  cell._hoverTimeout = setTimeout(() => {
+    cell.classList.remove("hovered");
+  }, 400);
+});
+
 // Work Section Animation
 const track = document.querySelector(".works_track");
 const extraScroll = isMobile ? 75 : 150;

@@ -74,32 +74,12 @@ section {
   width: 100%;
   position: relative;
   padding: 48px 5%;
-}
-
-section::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  z-index: 2;
-  opacity: 0.25;
-  pointer-events: none;
-  z-index: -1;
+  background-color: #fafafa;
 }
 
 .grainy-bg {
   position: relative;
-}
-
-.grainy-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  z-index: 2;
-  opacity: 0.25;
-  pointer-events: none;
-  z-index: -1;
+  background-color: #fafafa;
 }
 
 section .inner {
@@ -269,12 +249,22 @@ header .right_side a {
   transition: background-color 0.3s ease;
 }
 
-.grid-cell[data-side="left"]:hover {
+/* Single Cell Hover */
+/* .grid-cell[data-side="left"]:hover {
   background-color: rgba(89, 89, 89, 0.1);
 }
 
 .grid-cell[data-side="right"]:hover {
   background-color: rgba(255, 100, 103, 0.1);
+} */
+
+/* Multiple Cell Hover */
+.grid-cell[data-side="left"].hovered {
+  background-color: rgba(89, 89, 89, 0.12);
+}
+
+.grid-cell[data-side="right"].hovered {
+  background-color: rgba(255, 100, 103, 0.12);
 }
 
 .hero_footer {
