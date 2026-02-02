@@ -566,13 +566,11 @@ function getDeviceType() {
 }
 
 function getVisitorId() {
-  let id = localStorage.getItem("visitor_id");
+  const match = document.cookie.match(/visitor_id=([^;]+)/);
+  if (match) return match[1];
 
-  if (!id) {
-    id = crypto.randomUUID(); // secure unique ID
-    localStorage.setItem("visitor_id", id);
-  }
-
+  const id = crypto.randomUUID();
+  document.cookie = `visitor_id=${id}; path=/; max-age=31536000; SameSite=Lax`;
   return id;
 }
 
