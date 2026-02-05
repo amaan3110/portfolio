@@ -439,7 +439,7 @@ startLiveTimer("9/9/2024 9:55:32", "startDateDisplay");
 // Old Portfolio Redirection
 
 function redirectToOld() {
-  const { utm_source, utm_medium } = getUTMParams();
+  const { utm_source, utm_medium, visitor_id } = getUTMParams();
 
   const newSource = utm_source ? `${utm_source}_new` : "direct_new";
   const newMedium = utm_medium ? `${utm_medium}_new` : "none_new";
@@ -448,6 +448,7 @@ function redirectToOld() {
 
   url.searchParams.set("utm_source", newSource);
   url.searchParams.set("utm_medium", newMedium);
+  url.searchParams.set("visitor_id", visitor_id);
 
   window.open(url.toString(), "_blank");
 }
@@ -569,7 +570,14 @@ function getVisitorId() {
   const match = document.cookie.match(/visitor_id=([^;]+)/);
   if (match) return match[1];
 
-  const id = crypto.randomUUID();
+  const params = new URLSearchParams(window.location.search);
+  let id = "";
+  if (params.has("visitor_id")) {
+    id = params.get("visitor_id");
+  } else {
+    id = crypto.randomUUID();
+  }
+
   document.cookie = `visitor_id=${id}; path=/; max-age=31536000; SameSite=Lax`;
   return id;
 }
