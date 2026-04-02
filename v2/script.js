@@ -25,6 +25,10 @@ gsap.set(hero_text, {
   clipPath: "inset(0 100% 0 0)",
 });
 
+document.fonts.ready.then(() => {
+  document.body.classList.add("loaded");
+});
+
 // gsap.set(hero_text_container, {
 //   y: window.innerHeight / 2 - hero_text_container.offsetHeight,
 // });

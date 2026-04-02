@@ -70,6 +70,14 @@ html {
 
 /* Basic Common Styling */
 
+body {
+  opacity: 0;
+}
+body.loaded {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
 section {
   width: 100%;
   position: relative;
