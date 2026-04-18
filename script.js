@@ -2,280 +2,545 @@
   const scroll = new LocomotiveScroll({
     el: document.querySelector("[data-scroll-container]"),
     smooth: true,
+    lerp: 0.1,
   });
 })();
 
 gsap.registerPlugin(ScrollTrigger);
 
-CustomEase.create("customEase", "0.16,1,0.3,1");
+const hero_text = document.querySelector(".my_name h1");
+const star_img = document.querySelector(".star_img");
+const hero_text_container = document.querySelector(".my_name");
+const loader_text = document.querySelector(".greeting_text");
+let index = 0;
 
-const words = document.querySelectorAll(".loader_greeting span");
-const tl = gsap.timeline();
+const greetings = ["Hello", "नमस्ते", "Bonjour", "Hola", "こんにちは", "سلام"];
 
-words.forEach((word) => {
-  tl.to(word, {
-    display: "block",
-    duration: 0.1,
-  }).to(
-    word,
-    {
-      display: "none",
-      duration: 0.1,
-      onComplete: () => {
-        gsap.to(".loader_text", { opacity: 1 });
-      },
-    },
-    "+=0.2",
-  );
+const tl = gsap.timeline({ ease: "power2.inOut" });
+
+const isMobile = window.innerWidth < 600;
+const isTablet = window.innerWidth < 992;
+
+gsap.set(hero_text, {
+  clipPath: "inset(0 100% 0 0)",
 });
-tl.from(".loader h1", {
-  x: 80,
+
+document.fonts.ready.then(() => {
+  document.body.classList.add("loaded");
+});
+
+// gsap.set(hero_text_container, {
+//   y: window.innerHeight / 2 - hero_text_container.offsetHeight,
+// });
+
+tl.from(star_img, {
+  y: "100%",
   opacity: 0,
-  duraion: 1,
-  ease: "power1.inOut",
+  duration: 1,
 })
-  .from(".name", {
-    height: 0,
-    transformOrigin: "top",
-    duration: 0.5,
-    ease: "power2.out",
-  })
-  .to(".loader h1", {
-    autoAlpha: 0,
+  .to(star_img, {
+    x: -hero_text.offsetWidth,
+    rotation: -90,
     duration: 1,
-    ease: "power3.out",
-    delay: 0.3,
+  })
+  .to(star_img, {
+    x: 0,
+    y: 0,
+    rotation: 0,
+    duration: 1,
   })
   .to(
-    ".loader",
+    hero_text,
     {
-      height: 0,
+      clipPath: "inset(0 0% 0 0)",
       duration: 1,
-      ease: "power3.out",
     },
-    "-=0.5",
+    "<",
   )
   .to(
-    ".loader_2",
+    hero_text_container,
     {
-      height: 0,
-      duration: 1,
-      ease: "customEase",
-      onComplete: () => {
-        document.querySelector(".loader-container").remove();
-      },
+      x: isTablet ? 15 : 0,
     },
-    "-=0.7",
-  );
+    "<",
+  )
+  .to(star_img, {
+    height: isMobile ? 30 : 40,
+    x: -20,
+    y: isMobile ? -20 : -25,
+    rotate: -180,
+    duration: 1,
+  })
+  .to(hero_text_container, {
+    y: 0,
+    duration: 1,
+  })
+  .to(
+    ".loader_screen",
+    {
+      background: "transparent",
+      duartion: 1,
+    },
+    "<",
+  )
+  .from(
+    "header",
+    {
+      y: -20,
+      opacity: 0,
+      duration: 1,
+    },
+    "<",
+  )
+  .to(
+    "header",
+    {
+      zIndex: 99,
+    },
+    "<",
+  )
+  .to(".hero_text_img", {
+    opacity: 1,
+    duration: 0.5,
+    onComplete: () => {
+      document.querySelector(".loader_screen")?.remove();
+    },
+  });
 
-function projectCards({ year, type, name, link }) {
-  return `<div class="projects_card">
-            <div class="project_type">${type} <br/> <span class="font-freight fw-600">${year}</span></div>
-            <div class="project_name">${name}</div>
-            <div class="project_link">
-              <a href=${link} target="_blank">
-                <i class="ri-arrow-right-long-line"></i>
-              </a>
-            </div>
-          </div>`;
-}
-
-const projectArray = [
-  {
-    year: 2025,
-    type: "Company Project",
-    name: "GrowSkills",
-    link: "https://growskills.alignbooks.com/",
-  },
-  {
-    year: 2025,
-    type: "Company Project",
-    name: "Learn with AlignBooks",
-    link: "https://learn.alignbooks.com/",
-  },
-  {
-    year: 2024,
-    type: "Company Project",
-    name: "AlignBooks",
-    link: "https://alignbooks.com/",
-  },
-  {
-    year: 2024,
-    type: "Spring Initializr",
-    name: "Node Initializer",
-    link: "https://node-initializer.onrender.com/",
-  },
-  {
-    year: 2024,
-    type: "Uber Inspired",
-    name: "Cabixx",
-    link: "https://frontend-oiji.onrender.com/",
-  },
-  {
-    year: 2024,
-    type: "AI Code Reviewer",
-    name: "Code Reviewer",
-    link: "https://codereviewer.onrender.com",
-  },
-  {
-    year: 2023,
-    type: "E-Commerce",
-    name: "Scatch",
-    link: "https://scatch.onrender.com",
-  },
-  {
-    year: 2023,
-    type: "Development Studio",
-    name: "Zajno",
-    link: "https://amaan3110.github.io/animated-websites/",
-  },
-  {
-    year: 2022,
-    type: "Presentation Agency",
-    name: "Ochi Design",
-    link: "https://amaan3110.github.io/animated-websites/",
-  },
-  {
-    year: 2022,
-    type: "Design Agency",
-    name: "Rejouice",
-    link: "https://amaan3110.github.io/animated-websites/",
-  },
-];
-
-projectArray.forEach((project) => {
-  document.getElementById("projects").innerHTML += projectCards(project);
-});
-
-let lastScrollY = window.scrollY;
-let isScrollingDown = false;
-
-let ticking = false;
-
-window.addEventListener("scroll", () => {
-  const currentScroll = window.scrollY;
-
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-      if (currentScroll > lastScrollY && !isScrollingDown) {
-        // Scrolling down
-        gsap.to("nav", {
-          y: -100,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-        isScrollingDown = true;
-      } else if (currentScroll < lastScrollY && isScrollingDown) {
-        // Scrolling up
-        gsap.to("nav", {
-          y: 0,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-        isScrollingDown = false;
-      }
-
-      lastScrollY = currentScroll;
-      ticking = false;
-    });
-
-    ticking = true;
-  }
-});
-
-function scrollMarquee() {
-  const scrollInner = document.querySelector(".scroll_inner");
-  const scrollMarquee = document.querySelector(".scroll_marquee");
-
-  let lastScrollY = window.scrollY;
-  let offsetX = 0;
+// Header Animation
+(function scrollHeader() {
+  let lastY = window.scrollY;
+  let hidden = false;
 
   window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY;
-    const delta = currentScrollY - lastScrollY;
+    const y = window.scrollY;
 
-    const rect = scrollMarquee.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      offsetX += delta * 1;
-
-      gsap.to(scrollInner, {
-        x: -offsetX,
-        duration: 0.5,
-        ease: "power2.out",
-      });
+    if (y > lastY && !hidden) {
+      gsap.to("header", { y: -100, duration: 0.5, ease: "power2.out" });
+      hidden = true;
     }
 
-    lastScrollY = currentScrollY;
-  });
-}
-scrollMarquee();
+    if (y < lastY && hidden) {
+      gsap.to("header", { y: 0, duration: 0.5, ease: "power2.out" });
+      hidden = false;
+    }
 
+    lastY = y;
+  });
+})();
+
+// Image Error Handeling
+function onImageError(img) {
+  const fallback = img.dataset.fallback;
+
+  if (!fallback) return;
+
+  img.onerror = null;
+  img.src = fallback;
+}
+
+// Open Resume in New Tab
+async function openResume() {
+  window.open(
+    `https://ik.imagekit.io/webdev567/Amaan_Resume.pdf?v=${Date.now()}`,
+    "_blank",
+  );
+
+  if (sessionStorage.getItem("resumeClicked")) return;
+
+  const { utm_source, utm_medium } = getUTMParams();
+
+  const payload = {
+    name: "resume_clicked",
+    email: "",
+    project: "",
+    message: "",
+    utm_source,
+    utm_medium,
+  };
+
+  const serverRes = await ApiCall(
+    "https://sheetdb.io/api/v1/d150xowibfx7o",
+    payload,
+  );
+
+  if (serverRes.created == 1) {
+    sessionStorage.setItem("resumeClicked", "true");
+  }
+}
+
+// Hero Section Animation
+function placeHeroTextImages() {
+  const wrapper = document.querySelector(".my_name");
+  if (!wrapper) return;
+
+  const h1 = wrapper.querySelector("h1");
+  const img1 = wrapper.querySelector(".hero_text1");
+  const img2 = wrapper.querySelector(".hero_text2");
+
+  if (!h1 || !img1 || !img2) return;
+
+  const gap = 16; // spacing between h1 and images
+
+  const wrapRect = wrapper.getBoundingClientRect();
+  const h1Rect = h1.getBoundingClientRect();
+
+  const h1Left = h1Rect.left - wrapRect.left;
+  const h1Right = h1Left + h1Rect.width;
+
+  img1.style.top = `0px`;
+  img2.style.bottom = `0px`;
+  img2.style.top = "auto";
+
+  img1.style.left = isTablet ? "auto" : `${h1Left - img1.offsetWidth + 10}px`;
+
+  img2.style.left = isMobile ? "auto" : `${h1Right + gap}px`;
+}
+window.addEventListener("load", placeHeroTextImages);
+window.addEventListener("resize", placeHeroTextImages);
+document.querySelectorAll(".hero_text_img").forEach((img) => {
+  img.addEventListener("load", placeHeroTextImages);
+});
+if (document.fonts) {
+  document.fonts.ready.then(placeHeroTextImages);
+}
+
+// Update Time
 function updateTime() {
   const now = new Date();
 
-  // Get hours and minutes
-  const hours = String(now.getHours()).padStart(2, "0");
-  const minutes = String(now.getMinutes()).padStart(2, "0");
-  const seconds = String(now.getSeconds()).padStart(2, "0");
-
-  // Get timezone offset in minutes
-  const offsetMin = now.getTimezoneOffset(); // e.g., -330 for +5:30
-  const offsetHours = Math.floor(Math.abs(offsetMin) / 60);
-  const offsetMinutes = Math.abs(offsetMin) % 60;
-  const sign = offsetMin <= 0 ? "+" : "-";
-
-  const formattedOffset = `${sign}${offsetHours}:${offsetMinutes
-    .toString()
-    .padStart(2, "0")}`;
-
-  const formattedTime = `${hours}:${minutes}:${seconds} GMT (${formattedOffset})`;
+  const time = now.toLocaleTimeString("en-IN", {
+    timeZone: "Asia/Kolkata",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
 
   document.getElementById("timeDisplay").innerHTML =
-    "My Local Time<br/>" + formattedTime;
+    `My Local Time<br/>${time} IST (Asia/Kolkata)`;
 }
 updateTime();
 setInterval(updateTime, 1000);
 
-document.querySelectorAll(".page5_body span").forEach((span) => {
-  span.addEventListener("click", (e) => {
-    const url = e.target.dataset.url;
-    window.open(url, "_blank");
-  });
+// Hero Section Grid
+const hero_grid = document.querySelector(".hero_grid");
+function createGrid() {
+  hero_grid.innerHTML = "";
+
+  const size = 60;
+
+  if (!hero_grid) return;
+
+  const { width, height } = hero_grid.getBoundingClientRect();
+
+  const cols = Math.floor(width / size);
+  const rows = Math.floor(height / size);
+  const totalCells = cols * rows;
+  const half = Math.ceil(cols / 2);
+
+  for (let i = 0; i < totalCells; i++) {
+    const cell = document.createElement("div");
+    cell.className = "grid-cell";
+
+    const colIndex = i % cols;
+
+    cell.dataset.col = colIndex;
+    cell.dataset.side = colIndex < half ? "left" : "right";
+
+    hero_grid.appendChild(cell);
+  }
+}
+
+createGrid();
+window.addEventListener("resize", () => {
+  createGrid();
 });
 
-gsap.from(".skill_container > img", {
-  x: "100%",
-  opacity: 0,
-  duration: 1,
-  ease: "power2.inOut",
+hero_grid.addEventListener("mouseover", (e) => {
+  const cell = e.target;
+  if (!cell.classList.contains("grid-cell")) return;
+
+  cell.classList.add("hovered");
+
+  clearTimeout(cell._hoverTimeout);
+  cell._hoverTimeout = setTimeout(() => {
+    cell.classList.remove("hovered");
+  }, 400);
+});
+
+// Work Section Animation
+const track = document.querySelector(".works_track");
+const extraScroll = isMobile ? 75 : 150;
+const startPos =
+  window.innerWidth <= 992 || window.innerWidth >= 1440 ? "top" : "-=150";
+gsap.to(track, {
+  x: () => track.offsetWidth - track.scrollWidth - extraScroll,
+  ease: "none",
   scrollTrigger: {
-    trigger: ".skill_container",
-    start: "top 70%",
-    end: "bottom 80%",
+    trigger: ".section-works",
+    start: `top ${startPos}`,
+    end: () => `+=${track.scrollWidth}`,
+    scrub: 1,
+    pin: true,
+    anticipatePin: 1,
   },
 });
 
-document.getElementById("checkbox").addEventListener("change", (e) => {
-  const [firstH2, secondH2] = document.querySelectorAll(".about_me h2");
+// Slider Text Animation
+const text_wrapper = document.querySelector(".text_wrapper");
+let text_height = 60;
+(function slideTextAnimation() {
+  text_wrapper.style.transition = `transform 600ms ease`;
+  text_wrapper.style.transform = `translateY(-${text_height}px)`;
 
-  const showFirst = !checkbox.checked;
+  setTimeout(() => {
+    text_wrapper.appendChild(text_wrapper.firstElementChild);
+    text_wrapper.style.transition = "none";
+    text_wrapper.style.transform = "translateY(0)";
 
-  gsap.to(firstH2, {
-    opacity: showFirst ? 1 : 0,
-    duration: 0.5,
-    ease: "power2.inOut",
+    setTimeout(slideTextAnimation, 1400);
+  }, 600);
+})();
+
+(function applyRandomBgColor() {
+  const colors = ["--secondary", "--red", "--blue", "--yellow"];
+
+  const randomVar = colors[Math.floor(Math.random() * colors.length)];
+
+  const root = document.documentElement;
+  const randomColor = getComputedStyle(root).getPropertyValue(randomVar).trim();
+
+  document.querySelector(".animation_container").style.backgroundColor =
+    randomColor;
+})();
+
+// Testimonials Section Animation (Printer Cards)
+function printerCardsAnimation() {
+  if (isTablet) return;
+  const section = document.querySelector(".section-testimonials");
+  const printerImg = document.querySelector(".printer_img");
+  const cards = gsap.utils.toArray(".testimonial_card");
+
+  const printerRect = printerImg.getBoundingClientRect();
+
+  cards.forEach((card, i) => {
+    const cardRect = card.getBoundingClientRect();
+
+    const fromX =
+      printerRect.left +
+      printerRect.width / 2 -
+      (cardRect.left + cardRect.width / 2);
+    const fromY =
+      printerRect.top +
+      printerRect.height * 0.15 -
+      (cardRect.top + cardRect.height / 2);
+
+    gsap.from(card, {
+      x: fromX,
+      y: fromY,
+      scale: 0.7,
+      rotate: gsap.utils.random(-6, 6),
+      duration: 1,
+      ease: "power2.out",
+      delay: i * 0.5,
+      scrollTrigger: {
+        trigger: section,
+        start: "top 30%",
+        toggleActions: "play none none none",
+      },
+    });
+  });
+}
+printerCardsAnimation();
+
+// Testimonials Section Animation (Testimonial Cards)
+function placeTestimonialCards() {
+  if (!isTablet) return;
+  const cards = document.querySelectorAll(".testimonial_card");
+
+  cards.forEach((card) => {
+    card.style.rotate = "0deg";
+    card.style.transform = "translateY(0px)";
+    card.style.transition = "all 0.3s ease";
   });
 
-  gsap.to(secondH2, {
-    opacity: showFirst ? 0 : 1,
-    duration: 0.5,
-    ease: "power2.inOut",
-  });
+  const center = Math.floor(cards.length / 2);
+  const left = center - 1;
+  const right = center + 1;
+
+  const leftCard = cards[left];
+  const rightCard = cards[right];
+
+  if (leftCard) {
+    leftCard.style.rotate = "-5deg";
+    leftCard.style.transform = "translateY(30px)";
+  }
+
+  if (rightCard) {
+    rightCard.style.rotate = "5deg";
+    rightCard.style.transform = "translateY(30px)";
+  }
+}
+
+placeTestimonialCards();
+
+function moveTestimonialCards(direction) {
+  const cards = document.querySelectorAll(".testimonial_card");
+  const cards_container = document.querySelector(".testimonials");
+
+  if (direction == "next") {
+    cards_container.appendChild(cards[0]);
+  } else if (direction == "prev") {
+    cards_container.prepend(cards[cards.length - 1]);
+  }
+
+  placeTestimonialCards();
+}
+
+if (isTablet) {
+  setInterval(() => moveTestimonialCards("next"), 5000);
+}
+
+// Live Timer (since job start date)
+function startLiveTimer(startDateStr, elId) {
+  const startDate = new Date(startDateStr); // "9/9/2024"
+
+  if (!startDate) {
+    console.error("❌ Invalid date format. Use like: '9/9/2024 10:30'");
+    return;
+  }
+
+  const el = document.getElementById(elId);
+
+  function update() {
+    const now = new Date();
+    let diff = now - startDate; // milliseconds
+
+    if (diff < 0) diff = 0; // if start date is future
+
+    const totalSeconds = Math.floor(diff / 1000);
+
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = String(Math.floor((totalSeconds % 86400) / 3600)).padStart(
+      2,
+      "0",
+    );
+    const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(
+      2,
+      "0",
+    );
+    const seconds = String(totalSeconds % 60).padStart(2, "0");
+
+    el.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  update();
+  return setInterval(update, 1000);
+}
+startLiveTimer("9/9/2024 9:55:32", "startDateDisplay");
+
+// Old Portfolio Redirection
+
+function redirectToOld() {
+  const { utm_source, utm_medium, visitor_id } = getUTMParams();
+
+  const newSource = utm_source ? `${utm_source}_new` : "direct_new";
+  const newMedium = utm_medium ? `${utm_medium}_new` : "none_new";
+
+  const url = new URL("https://amaan3110.github.io/portfolio/v1");
+
+  url.searchParams.set("utm_source", newSource);
+  url.searchParams.set("utm_medium", newMedium);
+  url.searchParams.set("visitor_id", visitor_id);
+
+  window.open(url.toString(), "_blank");
+}
+
+// Contact Form
+const contact_form = document.getElementById("story-form");
+const closeBtn = document.getElementById("status_close");
+
+contact_form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const name = contact_form.name.value;
+  const email = contact_form.email.value;
+  const project = contact_form.project.value;
+  const message = contact_form.message.value;
+
+  const btn = contact_form.querySelector("button[type='submit']");
+
+  // ✅ Loading ON
+  btn.classList.add("loading");
+  btn.disabled = true;
+  btn.innerHTML = '<i class="ri-loader-4-line btn-spinner"></i>';
+
+  const { utm_source, utm_medium } = getUTMParams();
+
+  const payload = {
+    name,
+    email,
+    project,
+    message,
+    utm_source,
+    utm_medium,
+  };
+
+  try {
+    const serverRes = await ApiCall(
+      "https://sheetdb.io/api/v1/d150xowibfx7o",
+      payload,
+    );
+
+    if (serverRes.created === 1) {
+      console.log("✅ Form data sent to SheetDB");
+      contact_form.reset();
+
+      showHideModal("show");
+
+      setTimeout(() => {
+        showHideModal("hide");
+      }, 5000);
+    } else {
+      console.error("❌ Error sending form data");
+    }
+  } catch (_) {
+  } finally {
+    btn.classList.remove("loading");
+    btn.disabled = false;
+    btn.innerHTML = "git commit -m 'send'";
+  }
 });
 
-function redirectTo(url) {
-  window.open(url, "_blank");
+closeBtn.addEventListener("click", () => {
+  showHideModal("hide");
+});
+
+function showHideModal(type) {
+  if (type == "show") {
+    gsap.set(".status_modal", {
+      y: 100,
+      opacity: 0,
+    });
+
+    $("#contact_form_status").show();
+
+    gsap.to(".status_modal", {
+      y: 0,
+      opacity: 1,
+    });
+  } else if (type == "hide") {
+    gsap.to(".status_modal", {
+      y: 100,
+      opacity: 0,
+      onComplete: () => {
+        $("#contact_form_status").hide();
+      },
+    });
+  }
 }
+
+// UTM Param Functions
 
 function getFormattedTimestamp() {
   const now = new Date();
@@ -291,28 +556,6 @@ function getFormattedTimestamp() {
   const seconds = String(istTime.getUTCSeconds()).padStart(2, "0");
 
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-}
-
-function redirectToNew() {
-  const { utm_source, utm_medium, visitor_id } = getUTMParams();
-
-  const newSource = utm_source ? `${utm_source}_old` : "direct_old";
-  const newMedium = utm_medium ? `${utm_medium}_old` : "none_old";
-
-  const url = new URL("https://amaan3110.github.io/portfolio/v2/");
-
-  url.searchParams.set("utm_source", newSource);
-  url.searchParams.set("utm_medium", newMedium);
-  url.searchParams.set("visitor_id", visitor_id);
-
-  window.open(url.toString(), "_blank");
-}
-
-function openResume() {
-  window.open(
-    `https://ik.imagekit.io/webdev567/Amaan_Resume.pdf?v=${Date.now()}`,
-    "_blank",
-  );
 }
 
 function getDeviceType() {
@@ -343,21 +586,85 @@ function getVisitorId() {
   return id;
 }
 
+function getClubbedUAInfo() {
+  const ua = navigator.userAgent;
+
+  let device = "Unknown";
+  let os = "Unknown";
+  let osVersion = "";
+  let browser = "Unknown";
+  let browserVersion = "";
+
+  // iPhone / iPad
+  if (/iPhone|iPad|iPod/i.test(ua)) {
+    device = /iPad/i.test(ua) ? "iPad" : "iPhone";
+    os = "iOS";
+
+    const iosMatch = ua.match(/OS (\d+[_\d]*)/);
+    if (iosMatch) osVersion = iosMatch[1].replaceAll("_", ".");
+
+    const safariMatch = ua.match(/Version\/([\d.]+)/);
+    if (safariMatch) {
+      browser = "Safari";
+      browserVersion = safariMatch[1];
+    }
+  }
+  // Android
+  else if (/Android/i.test(ua)) {
+    device = "Android";
+    os = "Android";
+
+    const androidMatch = ua.match(/Android ([\d.]+)/);
+    if (androidMatch) osVersion = androidMatch[1];
+
+    const chromeMatch = ua.match(/Chrome\/([\d.]+)/);
+    if (chromeMatch) {
+      browser = "Chrome";
+      browserVersion = chromeMatch[1];
+    }
+  }
+  // Desktop
+  else {
+    device = "Desktop";
+
+    if (/Windows/i.test(ua)) os = "Windows";
+    else if (/Macintosh/i.test(ua)) os = "MacOS";
+    else if (/Linux/i.test(ua)) os = "Linux";
+
+    const edgeMatch = ua.match(/Edg\/([\d.]+)/);
+    const chromeMatch = ua.match(/Chrome\/([\d.]+)/);
+    const firefoxMatch = ua.match(/Firefox\/([\d.]+)/);
+
+    if (edgeMatch) {
+      browser = "Edge";
+      browserVersion = edgeMatch[1];
+    } else if (chromeMatch) {
+      browser = "Chrome";
+      browserVersion = chromeMatch[1];
+    } else if (firefoxMatch) {
+      browser = "Firefox";
+      browserVersion = firefoxMatch[1];
+    }
+  }
+
+  // ✅ clubbed string
+  return `${device} | ${browser} ${browserVersion} | ${os} ${osVersion}`.trim();
+}
+
 function getUTMParams() {
   const params = new URLSearchParams(window.location.search);
   return {
     utm_source: params.get("utm_source") || "",
     utm_medium: params.get("utm_medium") || "",
-    device: getDeviceType() || "",
+    device: getDeviceType(),
     timestamp: getFormattedTimestamp(),
     visitor_id: getVisitorId(),
+    user_agent: getClubbedUAInfo(),
   };
 }
 
 (async () => {
-  if (sessionStorage.getItem("utmDataSent_v1")) {
-    return;
-  }
+  if (sessionStorage.getItem("utmDataSent_v2")) return;
 
   const utm = getUTMParams();
 
@@ -372,18 +679,29 @@ function getUTMParams() {
   }
 
   if (utm.utm_source || utm.utm_medium) {
-    try {
-      await fetch("https://sheetdb.io/api/v1/01evwz914tipz", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ data: utm }),
-      });
+    const serverRes = await ApiCall(
+      "https://sheetdb.io/api/v1/01evwz914tipz",
+      utm,
+    );
+
+    if (serverRes.created == 1) {
       console.log("✅ UTM data sent to SheetDB");
-      sessionStorage.setItem("utmDataSent_v1", "true");
-    } catch (error) {
-      console.error("❌ Error sending UTM data:", error);
+      sessionStorage.setItem("utmDataSent_v2", "true");
     }
   }
 })();
+
+async function ApiCall(url, payload) {
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data: payload }),
+    });
+
+    const data = await res.json();
+    return data;
+  } catch (_) {}
+}
