@@ -445,8 +445,8 @@ startLiveTimer("9/9/2024 9:55:32", "startDateDisplay");
 function redirectToOld() {
   const { utm_source, utm_medium, visitor_id } = getUTMParams();
 
-  const newSource = utm_source ? `${utm_source}_new` : "direct_new";
-  const newMedium = utm_medium ? `${utm_medium}_new` : "none_new";
+  const newSource = utm_source ? `${utm_source}_v2` : "direct_v2";
+  const newMedium = utm_medium ? `${utm_medium}_v2` : "none_v2";
 
   const url = new URL("https://amaan3110.github.io/portfolio/v1");
 

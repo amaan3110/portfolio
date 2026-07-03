@@ -296,8 +296,8 @@ function getFormattedTimestamp() {
 function redirectToNew() {
   const { utm_source, utm_medium, visitor_id } = getUTMParams();
 
-  const newSource = utm_source ? `${utm_source}_old` : "direct_old";
-  const newMedium = utm_medium ? `${utm_medium}_old` : "none_old";
+  const newSource = utm_source ? `${utm_source}_v1` : "direct_v1";
+  const newMedium = utm_medium ? `${utm_medium}_v1` : "none_v1";
 
   const url = new URL("https://amaan3110.github.io/portfolio/");
 
